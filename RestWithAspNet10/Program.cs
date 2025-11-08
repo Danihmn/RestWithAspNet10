@@ -1,4 +1,3 @@
-
 namespace RestWithAspNet10
 {
     public class Program
