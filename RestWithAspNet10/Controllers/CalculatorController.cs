@@ -19,16 +19,16 @@ namespace RestWithAspNet10.Controllers
 
         private decimal ConvertToDecimal (string stringValue)
         {
-            decimal decimalValue;
-            bool decimalValueConverted = decimal.TryParse(stringValue, out decimalValue);
+            bool decimalValue = decimal.TryParse(stringValue, out decimal decimalValueConverted);
 
-            if (decimalValueConverted) return decimalValue;
+            if (decimalValue) return decimalValueConverted;
             else throw new Exception();
         }
 
-        private bool IsNumeric (object firstNumber)
+        private bool IsNumeric (string value)
         {
-            throw new NotImplementedException();
+            bool isNumeric = decimal.TryParse(value, out _);
+            return isNumeric;
         }
     }
 }

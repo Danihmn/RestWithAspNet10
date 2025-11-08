@@ -7,12 +7,12 @@
       "RelativeMoniker": "D:0:0:{EFA99A55-78C3-8769-733A-793B1F77AD41}|RestWithAspNet10.csproj|solutionrelative:controllers\\calculatorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFA99A55-78C3-8769-733A-793B1F77AD41}|RestWithAspNet10.csproj|c:\\dev_dotnet\\asp.net\\restwithaspnet10\\restwithaspnet10\\controllers\\greetingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EFA99A55-78C3-8769-733A-793B1F77AD41}|RestWithAspNet10.csproj|solutionrelative:controllers\\greetingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{EFA99A55-78C3-8769-733A-793B1F77AD41}|RestWithAspNet10.csproj|c:\\dev_dotnet\\asp.net\\restwithaspnet10\\restwithaspnet10\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EFA99A55-78C3-8769-733A-793B1F77AD41}|RestWithAspNet10.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFA99A55-78C3-8769-733A-793B1F77AD41}|RestWithAspNet10.csproj|c:\\dev_dotnet\\asp.net\\restwithaspnet10\\restwithaspnet10\\controllers\\greetingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFA99A55-78C3-8769-733A-793B1F77AD41}|RestWithAspNet10.csproj|solutionrelative:controllers\\greetingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -41,10 +41,6 @@
               "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
-            },
-            {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "CalculatorController.cs",
@@ -52,27 +48,26 @@
               "RelativeDocumentMoniker": "Controllers\\CalculatorController.cs",
               "ToolTip": "C:\\dev_dotnet\\ASP.NET\\RestWithAspNet10\\RestWithAspNet10\\Controllers\\CalculatorController.cs",
               "RelativeToolTip": "Controllers\\CalculatorController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-08T00:43:05.762Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "GreetingController.cs",
               "DocumentMoniker": "C:\\dev_dotnet\\ASP.NET\\RestWithAspNet10\\RestWithAspNet10\\Controllers\\GreetingController.cs",
               "RelativeDocumentMoniker": "Controllers\\GreetingController.cs",
               "ToolTip": "C:\\dev_dotnet\\ASP.NET\\RestWithAspNet10\\RestWithAspNet10\\Controllers\\GreetingController.cs",
               "RelativeToolTip": "Controllers\\GreetingController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T23:07:00.687Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-07T23:07:00.687Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\dev_dotnet\\ASP.NET\\RestWithAspNet10\\RestWithAspNet10\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -80,8 +75,7 @@
               "RelativeToolTip": "Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T22:44:32.355Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-07T22:44:32.355Z"
             }
           ]
         },
