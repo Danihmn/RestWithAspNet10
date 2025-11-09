@@ -11,7 +11,7 @@ namespace RestWithAspNet10.Controllers
         private static readonly string _template = "Hello, {0}!";
 
         [HttpGet]
-        public Greeting Get ([FromQuery] string name = "World")
+        public GreetingModel Get ([FromQuery] string name = "World")
         {
             var id = Interlocked.Increment(ref _counter);
             var content = string.Format(_template, name);
