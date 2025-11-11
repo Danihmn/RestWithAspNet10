@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using RestWithAspNet10.Handlers;
+using RestWithAspNet10.Services;
+using RestWithAspNet10.ValueHelper;
 
 namespace RestWithAspNet10.Controllers
 {
@@ -7,14 +8,18 @@ namespace RestWithAspNet10.Controllers
     [Route("[controller]")]
     public class CalculatorController : ControllerBase
     {
+        private readonly MathService _service;
+
+        public CalculatorController (MathService service)
+        {
+            _service = service;
+        }
+
         [HttpGet("sum/{firstNumber}/{secondNumber}")]
         public IActionResult GetSum (string firstNumber, string secondNumber)
         {
             if (Verifications.IsNumeric(firstNumber) && Verifications.IsNumeric(secondNumber))
-            {
-                decimal sum = Convertions.ConvertToDecimal(firstNumber) + Convertions.ConvertToDecimal(secondNumber);
-                return Ok(sum);
-            }
+                return Ok(_service.Sum(Convertions.ConvertToDecimal(firstNumber), Convertions.ConvertToDecimal(secondNumber)));
 
             return BadRequest("Valor(es) fornecido(s) inválido(s)");
         }
@@ -23,10 +28,16 @@ namespace RestWithAspNet10.Controllers
         public IActionResult GetSub (string firstNumber, string secondNumber)
         {
             if (Verifications.IsNumeric(firstNumber) && Verifications.IsNumeric(secondNumber))
-            {
-                decimal sub = Convertions.ConvertToDecimal(firstNumber) - Convertions.ConvertToDecimal(secondNumber);
-                return Ok(sub);
-            }
+                return Ok(_service.Subtraction(Convertions.ConvertToDecimal(firstNumber), Convertions.ConvertToDecimal(secondNumber)));
+
+            return BadRequest("Valor(es) fornecido(s) inválido(s)");
+        }
+
+        [HttpGet("mean/{firstNumber}/{secondNumber}")]
+        public IActionResult GetMean (string firstNumber, string secondNumber)
+        {
+            if (Verifications.IsNumeric(firstNumber) && Verifications.IsNumeric(secondNumber))
+                return Ok(_service.Mean(Convertions.ConvertToDecimal(firstNumber), Convertions.ConvertToDecimal(secondNumber)));
 
             return BadRequest("Valor(es) fornecido(s) inválido(s)");
         }
@@ -35,10 +46,7 @@ namespace RestWithAspNet10.Controllers
         public IActionResult GetMult (string firstNumber, string secondNumber)
         {
             if (Verifications.IsNumeric(firstNumber) && Verifications.IsNumeric(secondNumber))
-            {
-                decimal mult = Convertions.ConvertToDecimal(firstNumber) * Convertions.ConvertToDecimal(secondNumber);
-                return Ok(mult);
-            }
+                return Ok(_service.Multiplication(Convertions.ConvertToDecimal(firstNumber), Convertions.ConvertToDecimal(secondNumber)));
 
             return BadRequest("Valor(es) fornecido(s) inválido(s)");
         }
@@ -47,15 +55,7 @@ namespace RestWithAspNet10.Controllers
         public IActionResult GetDiv (string firstNumber, string secondNumber)
         {
             if (Verifications.IsNumeric(firstNumber) && Verifications.IsNumeric(secondNumber))
-            {
-                if (Convertions.ConvertToDecimal(secondNumber) > 0)
-                {
-                    decimal div = Convertions.ConvertToDecimal(firstNumber) / Convertions.ConvertToDecimal(secondNumber);
-                    return Ok(div);
-                }
-
-                return BadRequest("Divisão inválida");
-            }
+                return Ok(_service.Division(Convertions.ConvertToDecimal(firstNumber), Convertions.ConvertToDecimal(secondNumber)));
 
             return BadRequest("Valor(es) fornecido(s) inválido(s)");
         }
@@ -64,13 +64,7 @@ namespace RestWithAspNet10.Controllers
         public IActionResult GetSquareRoot (string number)
         {
             if (Verifications.IsNumeric(number))
-            {
-                decimal numberFormated = Convertions.ConvertToDecimal(number);
-
-                if (numberFormated > 0) return Ok(Math.Sqrt((double)numberFormated));
-
-                return BadRequest("Operação inválida");
-            }
+                return Ok(_service.SquareRoot(Convertions.ConvertToDecimal(number)));
 
             return BadRequest("Valor(es) fornecido(s) inválido(s)");
         }

@@ -1,4 +1,4 @@
-﻿namespace RestWithAspNet10.Handlers
+﻿namespace RestWithAspNet10.ValueHelper
 {
     internal class Verifications
     {
