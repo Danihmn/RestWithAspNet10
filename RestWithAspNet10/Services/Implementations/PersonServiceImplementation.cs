@@ -18,7 +18,7 @@ namespace RestWithAspNet10.Services.Implementations
         {
             List<PersonModel> people = new();
 
-            for (int i = 0; i >= 8; i++)
+            for (int i = 0; i <= 8; i++)
             {
                 people.Add(MockPerson(i));
             }
@@ -35,6 +35,7 @@ namespace RestWithAspNet10.Services.Implementations
         {
             // Simula lógica de deleção
         }
+
         private PersonModel MockPerson (int index)
         {
             PersonModel person = new()

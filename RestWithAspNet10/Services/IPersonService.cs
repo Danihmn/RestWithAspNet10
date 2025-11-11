@@ -6,6 +6,7 @@ namespace RestWithAspNet10.Services
     {
         PersonModel Create (PersonModel person);
         PersonModel FindById (long id);
+        public List<PersonModel> FindAll ();
         PersonModel Update (PersonModel person);
         void Delete (long id);
     }
