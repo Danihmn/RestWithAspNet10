@@ -1,3 +1,4 @@
+using RestWithAspNet10.Configurations;
 using RestWithAspNet10.Services;
 using RestWithAspNet10.Services.Implementations;
 
@@ -11,7 +12,7 @@ namespace RestWithAspNet10
 
             builder.Services.AddControllers();
 
-            builder.Services.AddSingleton<MathService>();
+            builder.Services.AddDatabaseConfiguration(builder.Configuration);
 
             builder.Services.AddScoped<IPersonService, PersonServiceImplementation>();
 
