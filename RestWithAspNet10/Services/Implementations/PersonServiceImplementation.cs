@@ -1,53 +1,50 @@
 ﻿using RestWithAspNet10.Models;
+using RestWithAspNet10.Models.Context;
 
 namespace RestWithAspNet10.Services.Implementations
 {
     public class PersonServiceImplementation : IPersonService
     {
+        MSSQLContext _context;
+
+        public PersonServiceImplementation (MSSQLContext context)
+        {
+            _context = context;
+        }
+
+        public List<PersonModel> FindAll () => _context.Persons.ToList();
+
+        public PersonModel FindById (long id) => _context.Persons.Find(id);
+
         public PersonModel Create (PersonModel person)
         {
-            return person;
-        }
+            var createdPerson = _context.Persons.Add(person).Entity;
 
-        public PersonModel FindById (long id)
-        {
-            return MockPerson((int)id);
-        }
+            _context.SaveChanges();
 
-        public List<PersonModel> FindAll ()
-        {
-            List<PersonModel> people = new();
-
-            for (int i = 0; i <= 8; i++)
-            {
-                people.Add(MockPerson(i));
-            }
-
-            return people;
+            return createdPerson;
         }
 
         public PersonModel Update (PersonModel person)
         {
+            var existingPerson = _context.Persons.Find(person.Id);
+
+            if (existingPerson == null) throw new Exception("Pessoa não encontrada");
+
+            _context.Entry(existingPerson).CurrentValues.SetValues(person);
+            _context.SaveChanges();
+
             return person;
         }
 
         public void Delete (long id)
         {
-            // Simula lógica de deleção
-        }
+            var existingPerson = _context.Persons.Find(id);
 
-        private PersonModel MockPerson (int index)
-        {
-            PersonModel person = new()
-            {
-                Id = new Random().Next(1, 1000),
-                FirstName = "Daniel Eduardo" + index,
-                LastName = "Pratta Bezerra" + index,
-                Address = "Av. Prof. Henrique" + index,
-                Gender = "Male" + index
-            };
+            if (existingPerson == null) throw new Exception("Pessoa não encontrada");
 
-            return person;
+            _context.Persons.Remove(existingPerson);
+            _context.SaveChanges();
         }
     }
 }

@@ -10,6 +10,8 @@ namespace RestWithAspNet10
         {
             var builder = WebApplication.CreateBuilder(args);
 
+            builder.AddSerilogLogging();
+
             builder.Services.AddControllers();
 
             builder.Services.AddDatabaseConfiguration(builder.Configuration);
