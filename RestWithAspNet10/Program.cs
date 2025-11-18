@@ -1,4 +1,6 @@
 using RestWithAspNet10.Configurations;
+using RestWithAspNet10.Repositories;
+using RestWithAspNet10.Repositories.Implementations;
 using RestWithAspNet10.Services;
 using RestWithAspNet10.Services.Implementations;
 
@@ -17,6 +19,8 @@ namespace RestWithAspNet10
             builder.Services.AddDatabaseConfiguration(builder.Configuration);
 
             builder.Services.AddScoped<IPersonService, PersonServiceImplementation>();
+
+            builder.Services.AddScoped<IPersonRepository, PersonRepositoryImplementation>();
 
             builder.Services.AddOpenApi();
 

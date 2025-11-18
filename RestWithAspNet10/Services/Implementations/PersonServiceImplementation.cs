@@ -1,50 +1,25 @@
 ﻿using RestWithAspNet10.Models;
-using RestWithAspNet10.Models.Context;
+using RestWithAspNet10.Repositories;
 
 namespace RestWithAspNet10.Services.Implementations
 {
     public class PersonServiceImplementation : IPersonService
     {
-        MSSQLContext _context;
+        IPersonRepository _repository;
 
-        public PersonServiceImplementation (MSSQLContext context)
+        public PersonServiceImplementation (IPersonRepository repository)
         {
-            _context = context;
+            _repository = repository;
         }
 
-        public List<PersonModel> FindAll () => _context.Persons.ToList();
+        public List<PersonModel> FindAll () => _repository.FindAll();
 
-        public PersonModel FindById (long id) => _context.Persons.Find(id);
+        public PersonModel FindById (long id) => _repository.FindById(id);
 
-        public PersonModel Create (PersonModel person)
-        {
-            var createdPerson = _context.Persons.Add(person).Entity;
+        public PersonModel Create (PersonModel person) => _repository.Create(person);
 
-            _context.SaveChanges();
+        public PersonModel Update (PersonModel person) => _repository.Update(person);
 
-            return createdPerson;
-        }
-
-        public PersonModel Update (PersonModel person)
-        {
-            var existingPerson = _context.Persons.Find(person.Id);
-
-            if (existingPerson == null) throw new Exception("Pessoa não encontrada");
-
-            _context.Entry(existingPerson).CurrentValues.SetValues(person);
-            _context.SaveChanges();
-
-            return person;
-        }
-
-        public void Delete (long id)
-        {
-            var existingPerson = _context.Persons.Find(id);
-
-            if (existingPerson == null) throw new Exception("Pessoa não encontrada");
-
-            _context.Persons.Remove(existingPerson);
-            _context.SaveChanges();
-        }
+        public void Delete (long id) => _repository.Delete(id);
     }
 }
