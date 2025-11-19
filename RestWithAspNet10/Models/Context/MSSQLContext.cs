@@ -7,5 +7,6 @@ namespace RestWithAspNet10.Models.Context
         public MSSQLContext (DbContextOptions<MSSQLContext> options) : base(options) { }
 
         public DbSet<PersonModel> Persons { get; set; }
+        public DbSet<BookModel> Books { get; set; }
     }
 }

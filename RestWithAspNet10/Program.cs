@@ -19,8 +19,9 @@ namespace RestWithAspNet10
             builder.Services.AddDatabaseConfiguration(builder.Configuration);
 
             builder.Services.AddScoped<IPersonService, PersonServiceImplementation>();
-
             builder.Services.AddScoped<IPersonRepository, PersonRepositoryImplementation>();
+            builder.Services.AddScoped<IBookService, BookServiceImplementation>();
+            builder.Services.AddScoped<IBookRepository, BookRepositoryImplementation>();
 
             builder.Services.AddOpenApi();
 
@@ -34,7 +35,6 @@ namespace RestWithAspNet10
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
-
 
             app.MapControllers();
 
