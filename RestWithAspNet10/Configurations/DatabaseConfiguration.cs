@@ -3,7 +3,7 @@ using RestWithAspNet10.Models.Context;
 
 namespace RestWithAspNet10.Configurations
 {
-    public static class DatabaseConfig
+    public static class DatabaseConfiguration
     {
         public static IServiceCollection AddDatabaseConfiguration (this IServiceCollection services, IConfiguration configuration)
         {
