@@ -43,12 +43,13 @@ namespace RestWithAspNet10.Controllers
             _logger.LogInformation("Creating new Book: {firstName}", book.Title);
 
             var createdBook = _bookService.Create(book);
-            if (createdBook == null)
-            {
-                _logger.LogError("Failed to create book with name {firstName}", book.Title);
-                return NotFound();
-            }
-            return Ok(createdBook);
+
+            if (createdBook != null)
+                return Ok(createdBook);
+
+            _logger.LogError("Failed to create book with name {firstName}", book.Title);
+            return NotFound();
+
         }
 
         [HttpPut]
@@ -57,11 +58,13 @@ namespace RestWithAspNet10.Controllers
             _logger.LogInformation("Updating book with ID {id}", book.Id);
 
             var createdBook = _bookService.Update(book);
+
             if (createdBook == null)
             {
                 _logger.LogError("Failed to update book with ID {id}", book.Id);
                 return NotFound();
             }
+
             _logger.LogDebug("Book updated successfully: {firstName}", createdBook.Title);
             return Ok(createdBook);
         }
@@ -72,6 +75,7 @@ namespace RestWithAspNet10.Controllers
             _logger.LogInformation("Deleting book with ID {id}", id);
             _bookService.Delete(id);
             _logger.LogDebug("Book with ID {id} deleted successfully", id);
+
             return NoContent();
         }
     }

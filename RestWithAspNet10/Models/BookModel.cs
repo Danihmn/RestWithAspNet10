@@ -12,15 +12,17 @@ namespace RestWithAspNet10.Models
         public long Id { get; set; }
 
         [Required]
-        [Column("title", TypeName = "varchar(MAX)")]
-        public string Title { get; set; }
+        [Column("title", TypeName = "varchar(200)")]
+        [MaxLength(200)]
+        public string? Title { get; set; }
 
         [Required]
-        [Column("author", TypeName = "varchar(MAX)")]
-        public string Author { get; set; }
+        [Column("author", TypeName = "varchar(150)")]
+        [MaxLength(150)]
+        public string? Author { get; set; }
 
         [Required]
-        [Column("price")]
+        [Column("price", TypeName = "decimal(7,2)")]
         public decimal Price { get; set; }
 
         [Required]

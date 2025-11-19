@@ -5,7 +5,6 @@ namespace RestWithAspNet10.Repositories.Implementations
 {
     public class BookRepositoryImplementation : IBookRepository
     {
-
         private MSSQLContext _context;
 
         public BookRepositoryImplementation (MSSQLContext context)
@@ -53,5 +52,4 @@ namespace RestWithAspNet10.Repositories.Implementations
             _context.SaveChanges();
         }
     }
-
 }
