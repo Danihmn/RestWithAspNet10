@@ -1,16 +1,12 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using RestWithAspNet10.Models.Base;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RestWithAspNet10.Models
 {
     [Table("person")]
-    public class PersonModel
+    public class PersonModel : ModelBase
     {
-        [Key]
-        [Column("id")]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public long Id { get; set; }
-
         [Required]
         [Column("first_name", TypeName = "varchar(80)")]
         [MaxLength(80)]

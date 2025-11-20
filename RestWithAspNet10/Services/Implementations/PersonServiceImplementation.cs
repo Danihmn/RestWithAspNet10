@@ -5,9 +5,9 @@ namespace RestWithAspNet10.Services.Implementations
 {
     public class PersonServiceImplementation : IPersonService
     {
-        IPersonRepository _repository;
+        IRepository<PersonModel> _repository;
 
-        public PersonServiceImplementation (IPersonRepository repository)
+        public PersonServiceImplementation (IRepository<PersonModel> repository)
         {
             _repository = repository;
         }

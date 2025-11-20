@@ -1,0 +1,65 @@
+﻿using Microsoft.EntityFrameworkCore;
+using RestWithAspNet10.Models.Base;
+using RestWithAspNet10.Models.Context;
+using Serilog;
+
+namespace RestWithAspNet10.Repositories.Implementations
+{
+    public class RepositoryImplementation<T> : IRepository<T> where T : ModelBase
+    {
+        private MSSQLContext _context;
+        private DbSet<T> _dataSet;
+
+        public RepositoryImplementation(MSSQLContext context)
+        {
+            _context = context;
+            _dataSet = context.Set<T>();
+        }
+
+        public List<T> FindAll ()
+        {
+            return _dataSet.ToList();
+        }
+
+        public T FindById (long id)
+        {
+            return _dataSet.Find(id);
+        }
+
+        public T Create (T item)
+        {
+            var createditem = _context.Add(item).Entity;
+
+            _context.SaveChanges();
+
+            return createditem;
+        }
+
+        public T Update (T item)
+        {
+            var existingItem = _dataSet.Find(item.Id);
+
+            if (existingItem == null) Log.Error("Item não encontrado, falha ao tentar alterar");
+
+            _dataSet.Entry(existingItem).CurrentValues.SetValues(item);
+            _context.SaveChanges();
+
+            return item;
+        }
+
+        public void Delete (long id)
+        {
+            var existingItem = _dataSet.Find(id);
+
+            if (existingItem == null) Log.Error("Item não encontrado, falha ao tentar excluir");
+
+            _dataSet.Remove(existingItem);
+            _context.SaveChanges();
+        }
+
+        public bool Exists (long id)
+        {
+            return _dataSet.Any(e => e.Id == id);
+        }
+    }
+}
