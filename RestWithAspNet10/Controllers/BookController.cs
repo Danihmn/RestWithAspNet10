@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using RestWithAspNet10.Data.DTO;
 using RestWithAspNet10.Models;
 using RestWithAspNet10.Services;
 
@@ -41,11 +42,11 @@ namespace RestWithAspNet10.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post ([FromBody] BookModel book)
+        public IActionResult Post ([FromBody] BookDTO book)
         {
             _logger.LogInformation("Creating new Book: {firstName}", book.Title);
 
-            var createdBook = _bookService.Create(book);
+            BookDTO createdBook = _bookService.Create(book);
 
             if (createdBook != null)
                 return Ok(createdBook);
@@ -56,11 +57,11 @@ namespace RestWithAspNet10.Controllers
         }
 
         [HttpPut]
-        public IActionResult Put ([FromBody] BookModel book)
+        public IActionResult Put ([FromBody] BookDTO book)
         {
             _logger.LogInformation("Updating book with ID {id}", book.Id);
 
-            var createdBook = _bookService.Update(book);
+            BookDTO createdBook = _bookService.Update(book);
 
             if (createdBook == null)
             {

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using RestWithAspNet10.Data.DTO;
 using RestWithAspNet10.Models;
 using RestWithAspNet10.Services;
 
@@ -29,7 +30,7 @@ namespace RestWithAspNet10.Controllers
         {
             _logger.LogInformation($"Buscando pessoa pelo Id {id}");
 
-            PersonModel person = _personService.FindById(id);
+            PersonDTO person = _personService.FindById(id);
 
             if (person == null)
             {
@@ -41,9 +42,9 @@ namespace RestWithAspNet10.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create ([FromBody] PersonModel person)
+        public IActionResult Create ([FromBody] PersonDTO person)
         {
-            PersonModel createdPerson = _personService.Create(person);
+            PersonDTO createdPerson = _personService.Create(person);
 
             _logger.LogInformation($"Criando nova pessoa: {person.FirstName}");
 
@@ -57,9 +58,9 @@ namespace RestWithAspNet10.Controllers
         }
 
         [HttpPut]
-        public IActionResult Update ([FromBody] PersonModel person, long id)
+        public IActionResult Update ([FromBody] PersonDTO person, long id)
         {
-            PersonModel updatedPerson = _personService.Update(person);
+            PersonDTO updatedPerson = _personService.Update(person);
 
             _logger.LogInformation($"Alterando pessoa: {person.FirstName}");
 
