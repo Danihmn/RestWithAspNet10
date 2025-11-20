@@ -28,12 +28,15 @@ namespace RestWithAspNet10.Controllers
         public IActionResult Get (long id)
         {
             _logger.LogInformation("Fetching book with ID {id}", id);
+
             var book = _bookService.FindById(id);
+
             if (book == null)
             {
                 _logger.LogWarning("Book with ID {id} not found", id);
                 return NotFound();
             }
+
             return Ok(book);
         }
 
@@ -48,8 +51,8 @@ namespace RestWithAspNet10.Controllers
                 return Ok(createdBook);
 
             _logger.LogError("Failed to create book with name {firstName}", book.Title);
-            return NotFound();
 
+            return NotFound();
         }
 
         [HttpPut]
@@ -66,6 +69,7 @@ namespace RestWithAspNet10.Controllers
             }
 
             _logger.LogDebug("Book updated successfully: {firstName}", createdBook.Title);
+
             return Ok(createdBook);
         }
 
@@ -79,5 +83,4 @@ namespace RestWithAspNet10.Controllers
             return NoContent();
         }
     }
-
 }
