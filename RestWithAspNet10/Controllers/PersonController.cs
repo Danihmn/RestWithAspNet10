@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using RestWithAspNet10.Data.DTO;
-using RestWithAspNet10.Models;
 using RestWithAspNet10.Services;
 
 namespace RestWithAspNet10.Controllers

@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using RestWithAspNet10.Data.DTO;
-using RestWithAspNet10.Models;
 using RestWithAspNet10.Services;
 
 namespace RestWithAspNet10.Controllers
@@ -21,20 +20,20 @@ namespace RestWithAspNet10.Controllers
         [HttpGet]
         public IActionResult Get ()
         {
-            _logger.LogInformation("Fetching all books");
+            _logger.LogInformation("Buscando todos os livros");
             return Ok(_bookService.FindAll());
         }
 
         [HttpGet("{id}")]
         public IActionResult Get (long id)
         {
-            _logger.LogInformation("Fetching book with ID {id}", id);
+            _logger.LogInformation("Buscando livro pelo ID {id}", id);
 
-            var book = _bookService.FindById(id);
+            BookDTO book = _bookService.FindById(id);
 
             if (book == null)
             {
-                _logger.LogWarning("Book with ID {id} not found", id);
+                _logger.LogWarning("Livro com ID {id} não encontrado", id);
                 return NotFound();
             }
 
@@ -44,14 +43,14 @@ namespace RestWithAspNet10.Controllers
         [HttpPost]
         public IActionResult Post ([FromBody] BookDTO book)
         {
-            _logger.LogInformation("Creating new Book: {firstName}", book.Title);
+            _logger.LogInformation("Criando novo livro: {firstName}", book.Title);
 
             BookDTO createdBook = _bookService.Create(book);
 
             if (createdBook != null)
                 return Ok(createdBook);
 
-            _logger.LogError("Failed to create book with name {firstName}", book.Title);
+            _logger.LogError("Falha ao tentar criar o livro {firstName}", book.Title);
 
             return NotFound();
         }
@@ -59,17 +58,17 @@ namespace RestWithAspNet10.Controllers
         [HttpPut]
         public IActionResult Put ([FromBody] BookDTO book)
         {
-            _logger.LogInformation("Updating book with ID {id}", book.Id);
+            _logger.LogInformation("Alterando livro com ID {id}", book.Id);
 
             BookDTO createdBook = _bookService.Update(book);
 
             if (createdBook == null)
             {
-                _logger.LogError("Failed to update book with ID {id}", book.Id);
+                _logger.LogError("Falha ao tentar alterar livro com ID {id}", book.Id);
                 return NotFound();
             }
 
-            _logger.LogDebug("Book updated successfully: {firstName}", createdBook.Title);
+            _logger.LogDebug("Livro alterado com sucesso: {firstName}", createdBook.Title);
 
             return Ok(createdBook);
         }
@@ -77,9 +76,9 @@ namespace RestWithAspNet10.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete (int id)
         {
-            _logger.LogInformation("Deleting book with ID {id}", id);
+            _logger.LogInformation("Deletando livro pelo ID {id}", id);
             _bookService.Delete(id);
-            _logger.LogDebug("Book with ID {id} deleted successfully", id);
+            _logger.LogDebug("Livro com ID {id} deletado com sucesso", id);
 
             return NoContent();
         }
