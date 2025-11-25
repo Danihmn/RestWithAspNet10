@@ -4,9 +4,9 @@ namespace RestWithAspNet10.Services
 {
     public interface IPersonService
     {
-        PersonDTO Create (PersonDTO person);
-        PersonDTO FindById (long id);
         public List<PersonDTO> FindAll ();
+        PersonDTO FindById (long id);
+        PersonDTO Create (PersonDTO person);
         PersonDTO Update (PersonDTO person);
         void Delete (long id);
     }
