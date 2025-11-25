@@ -1,5 +1,4 @@
 using RestWithAspNet10.Configurations;
-using RestWithAspNet10.Data.Converter.Implementation;
 using RestWithAspNet10.Repositories;
 using RestWithAspNet10.Repositories.Implementations;
 using RestWithAspNet10.Services;
@@ -23,9 +22,6 @@ namespace RestWithAspNet10
             builder.Services.AddScoped<IBookService, BookServiceImplementation>();
 
             builder.Services.AddScoped(typeof(IRepository<>), typeof(RepositoryImplementation<>));
-
-            builder.Services.AddScoped<PersonConverterImplementation>();
-            builder.Services.AddScoped<BookConverterImplementation>();
 
             builder.Services.AddOpenApi();
 
