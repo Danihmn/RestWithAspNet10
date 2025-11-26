@@ -5,13 +5,13 @@ using RestWithAspNet10.Services;
 namespace RestWithAspNet10.Controllers
 {
     [ApiController]
-    [Route("api/[controller]/v1")]
+    [Route("api/v1/[controller]")]
     public class PersonController : ControllerBase
     {
-        private readonly IPersonService _personService;
+        private readonly IPersonService<PersonDTO> _personService;
         private readonly ILogger<PersonController> _logger;
 
-        public PersonController (IPersonService personService, ILogger<PersonController> logger)
+        public PersonController (IPersonService<PersonDTO> personService, ILogger<PersonController> logger)
         {
             _personService = personService;
             _logger = logger;

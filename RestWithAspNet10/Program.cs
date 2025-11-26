@@ -12,13 +12,20 @@ namespace RestWithAspNet10
         {
             var builder = WebApplication.CreateBuilder(args);
 
+            MapsterConfiguration.RegisterMappings();
+
             builder.AddSerilogLogging();
 
             builder.Services.AddControllers();
 
             builder.Services.AddDatabaseConfiguration(builder.Configuration);
 
-            builder.Services.AddScoped<IPersonService, PersonServiceImplementation>();
+            builder.Services.AddScoped<IPersonService<RestWithAspNet10.Data.DTO.V1.PersonDTO>,
+                PersonServiceImplementation<RestWithAspNet10.Data.DTO.V1.PersonDTO>>();
+
+            builder.Services.AddScoped<IPersonService<RestWithAspNet10.Data.DTO.V2.PersonDTO>,
+                PersonServiceImplementation<RestWithAspNet10.Data.DTO.V2.PersonDTO>>();
+
             builder.Services.AddScoped<IBookService, BookServiceImplementation>();
 
             builder.Services.AddScoped(typeof(IRepository<>), typeof(RepositoryImplementation<>));
