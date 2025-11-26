@@ -1,5 +1,5 @@
 ﻿using Mapster;
-using RestWithAspNet10.Data.DTO;
+using RestWithAspNet10.Data.DTO.V1;
 using RestWithAspNet10.Models;
 using RestWithAspNet10.Repositories;
 

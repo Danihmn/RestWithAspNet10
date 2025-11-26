@@ -26,5 +26,8 @@ namespace RestWithAspNet10.Models
         [Column("gender", TypeName = "varchar(60)")]
         [MaxLength(60)]
         public string? Gender { get; set; }
+
+        //[NotMapped]
+        //public DateTime? BirthDay { get; set; }
     }
 }
