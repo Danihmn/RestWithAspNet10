@@ -2,7 +2,7 @@
 using RestWithAspNet10.Data.DTO.V1;
 using RestWithAspNet10.Services;
 
-namespace RestWithAspNet10.Controllers
+namespace RestWithAspNet10.Controllers.V1
 {
     [ApiController]
     [Route("api/v1/[controller]")]
@@ -21,6 +21,10 @@ namespace RestWithAspNet10.Controllers
         public IActionResult GetAll ()
         {
             _logger.LogInformation("Buscando todas as pessoas");
+
+            Response.Headers.Append("X-API_Deprecated", "True");
+            Response.Headers.Append("X-API_Deprecation-Date", "2026-12-31");
+
             return Ok(_personService.FindAll());
         }
 
@@ -37,6 +41,9 @@ namespace RestWithAspNet10.Controllers
                 return NotFound();
             }
 
+            Response.Headers.Append("X-API_Deprecated", "True");
+            Response.Headers.Append("X-API_Deprecation-Date", "2026-12-31");
+
             return Ok(person);
         }
 
@@ -52,6 +59,9 @@ namespace RestWithAspNet10.Controllers
                 _logger.LogError("Erro ao tentar criar nova pessoa");
                 return NotFound();
             }
+
+            Response.Headers.Append("X-API_Deprecated", "True");
+            Response.Headers.Append("X-API_Deprecation-Date", "2026-12-31");
 
             return Ok(createdPerson);
         }
@@ -71,6 +81,9 @@ namespace RestWithAspNet10.Controllers
 
             _logger.LogDebug($"Pessoa atualizada com sucesso: {updatedPerson.FirstName}");
 
+            Response.Headers.Append("X-API_Deprecated", "True");
+            Response.Headers.Append("X-API_Deprecation-Date", "2026-12-31");
+
             return Ok(updatedPerson);
         }
 
@@ -81,6 +94,10 @@ namespace RestWithAspNet10.Controllers
 
             _logger.LogInformation($"Removendo pessoa pelo Id {id}");
             _personService.Delete(id);
+
+            Response.Headers.Append("X-API_Deprecated", "True");
+            Response.Headers.Append("X-API_Deprecation-Date", "2026-12-31");
+
             return NoContent();
         }
     }

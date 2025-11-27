@@ -2,7 +2,7 @@
 using RestWithAspNet10.Data.DTO.V1;
 using RestWithAspNet10.Services;
 
-namespace RestWithAspNet10.Controllers
+namespace RestWithAspNet10.Controllers.V1
 {
     [ApiController]
     [Route("api/v1/[controller]")]
