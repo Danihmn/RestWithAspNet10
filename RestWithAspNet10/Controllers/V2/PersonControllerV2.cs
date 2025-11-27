@@ -39,49 +39,5 @@ namespace RestWithAspNet10.Controllers.V2
 
             return Ok(person);
         }
-
-        [HttpPost]
-        public IActionResult Create ([FromBody] PersonDTO person)
-        {
-            PersonDTO createdPerson = _personService.Create(person);
-
-            _logger.LogInformation($"Criando nova pessoa: {person.FirstName}");
-
-            if (createdPerson == null)
-            {
-                _logger.LogError("Erro ao tentar criar nova pessoa");
-                return NotFound();
-            }
-
-            return Ok(createdPerson);
-        }
-
-        [HttpPut]
-        public IActionResult Update ([FromBody] PersonDTO person, long id)
-        {
-            PersonDTO updatedPerson = _personService.Update(person);
-
-            _logger.LogInformation($"Alterando pessoa: {person.FirstName}");
-
-            if (updatedPerson == null)
-            {
-                _logger.LogError($"Erro ao tentar alterar pessoa: {person.FirstName}, ID {person.Id}");
-                return NotFound();
-            }
-
-            _logger.LogDebug($"Pessoa atualizada com sucesso: {updatedPerson.FirstName}");
-
-            return Ok(updatedPerson);
-        }
-
-        [HttpDelete("{id}")]
-        public IActionResult Delete (long id)
-        {
-            if (_personService.FindById(id) == null) return NotFound();
-
-            _logger.LogInformation($"Removendo pessoa pelo Id {id}");
-            _personService.Delete(id);
-            return NoContent();
-        }
     }
 }
