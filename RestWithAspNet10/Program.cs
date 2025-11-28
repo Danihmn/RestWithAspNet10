@@ -28,6 +28,8 @@ namespace RestWithAspNet10
 
             builder.Services.AddScoped<IBookService, BookServiceImplementation>();
 
+            builder.Services.AddScoped<IProductService, ProductServiceImplementation>();
+
             builder.Services.AddScoped(typeof(IRepository<>), typeof(RepositoryImplementation<>));
 
             builder.Services.AddOpenApi();

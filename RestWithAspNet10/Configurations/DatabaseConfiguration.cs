@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using RestWithAspNet10.Models.Context;
+using RestWithAspNet10.Data.Context;
 
 namespace RestWithAspNet10.Configurations
 {
@@ -13,6 +13,7 @@ namespace RestWithAspNet10.Configurations
                 throw new ArgumentNullException("Connection string 'MSSQLServer não encontrada");
 
             services.AddDbContext<MSSQLContext>(options => options.UseSqlServer(connectionString));
+
             return services;
         }
     }

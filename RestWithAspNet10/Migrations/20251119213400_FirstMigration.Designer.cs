@@ -4,7 +4,8 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using RestWithAspNet10.Models.Context;
+using RestWithAspNet10.Data.Context;
+
 
 #nullable disable
 

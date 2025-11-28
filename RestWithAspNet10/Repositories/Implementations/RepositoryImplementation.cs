@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using RestWithAspNet10.Data.Context;
 using RestWithAspNet10.Models.Base;
-using RestWithAspNet10.Models.Context;
 using Serilog;
 
 namespace RestWithAspNet10.Repositories.Implementations

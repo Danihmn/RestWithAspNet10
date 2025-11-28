@@ -8,7 +8,8 @@ namespace RestWithAspNet10.Configurations
         public static void RegisterMappings ()
         {
             // V2
-            TypeAdapterConfig<PersonModel, RestWithAspNet10.Data.DTO.V2.PersonDTO>.NewConfig().Map(dest => dest.BirthDay, src => DateTime.Now);
+            TypeAdapterConfig<PersonModel, RestWithAspNet10.Data.DTO.V2.PersonDTO>
+                .NewConfig().Map(dest => dest.BirthDay, src => DateTime.Now);
         }
     }
 }

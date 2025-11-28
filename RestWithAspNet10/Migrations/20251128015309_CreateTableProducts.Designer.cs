@@ -7,14 +7,13 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RestWithAspNet10.Data.Context;
 
-
 #nullable disable
 
 namespace RestWithAspNet10.Migrations
 {
     [DbContext(typeof(MSSQLContext))]
-    [Migration("20251119230107_CreateTableBooks")]
-    partial class CreateTableBooks
+    [Migration("20251128015309_CreateTableProducts")]
+    partial class CreateTableProducts
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -96,6 +95,47 @@ namespace RestWithAspNet10.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("person");
+                });
+
+            modelBuilder.Entity("RestWithAspNet10.Models.ProductModel", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasColumnName("id");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<string>("Brand")
+                        .IsRequired()
+                        .HasColumnType("varchar(30)")
+                        .HasColumnName("brand");
+
+                    b.Property<decimal>("CostPrice")
+                        .HasColumnType("decimal(10,2)")
+                        .HasColumnName("cost_price");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("varchar(80)")
+                        .HasColumnName("description");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("name");
+
+                    b.Property<int>("QuantityStock")
+                        .HasColumnType("int")
+                        .HasColumnName("quantity_stock");
+
+                    b.Property<decimal>("SalePrice")
+                        .HasColumnType("decimal(10,2)")
+                        .HasColumnName("sale_price");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("products");
                 });
 #pragma warning restore 612, 618
         }
