@@ -10,7 +10,7 @@ namespace RestWithAspNet10.Repositories.Implementations
         private MSSQLContext _context;
         private DbSet<T> _dataSet;
 
-        public RepositoryImplementation(MSSQLContext context)
+        public RepositoryImplementation (MSSQLContext context)
         {
             _context = context;
             _dataSet = context.Set<T>();
@@ -37,14 +37,23 @@ namespace RestWithAspNet10.Repositories.Implementations
 
         public T Update (T item)
         {
-            var existingItem = _dataSet.Find(item.Id);
+            try
+            {
+                var existingItem = _dataSet.Find(item.Id);
 
-            if (existingItem == null) Log.Error("Item não encontrado, falha ao tentar alterar");
+                if (existingItem == null) Log.Error("Item não encontrado, falha ao tentar alterar");
 
-            _dataSet.Entry(existingItem).CurrentValues.SetValues(item);
-            _context.SaveChanges();
+                _dataSet.Entry(existingItem).CurrentValues.SetValues(item);
+                _context.SaveChanges();
 
-            return item;
+                return item;
+            }
+            catch (Exception e)
+            {
+                Log.Error("Falha ao tentar alterar item: " + e.Message);
+                return null;
+            }
+
         }
 
         public void Delete (long id)

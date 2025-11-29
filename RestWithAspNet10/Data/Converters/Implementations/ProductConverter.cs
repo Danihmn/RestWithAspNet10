@@ -14,8 +14,9 @@ namespace RestWithAspNet10.Data.Converters.Implementations
                 Id = origin.Id,
                 Name = origin.Name,
                 Description = origin.Description,
+                Brand = origin.Brand,
                 QuantityStock = origin.QuantityStock,
-                CostPrice = origin.CostPrice,
+                SalePrice = origin.SalePrice,
             };
         }
 
@@ -27,6 +28,7 @@ namespace RestWithAspNet10.Data.Converters.Implementations
                 Id = origin.Id,
                 Name = origin.Name,
                 Description = origin.Description,
+                Brand = origin.Brand,
                 QuantityStock = origin.QuantityStock,
                 CostPrice = origin.CostPrice,
                 SalePrice = origin.CostPrice * 2

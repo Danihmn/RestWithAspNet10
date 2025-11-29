@@ -8,5 +8,6 @@
         public string? Brand { get; set; }
         public int QuantityStock { get; set; }
         public decimal CostPrice { get; set; }
+        public decimal SalePrice { get; set; }
     }
 }
