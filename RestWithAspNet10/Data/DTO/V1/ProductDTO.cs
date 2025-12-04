@@ -1,4 +1,5 @@
-﻿using System.Text.Json.Serialization;
+﻿using RestWithAspNet10.JsonSerializers;
+using System.Text.Json.Serialization;
 
 namespace RestWithAspNet10.Data.DTO.V1
 {
@@ -17,9 +18,11 @@ namespace RestWithAspNet10.Data.DTO.V1
         public int QuantityStock { get; set; }
 
         [JsonPropertyName("cost_price")]
+        [JsonConverter(typeof(MoneySerializer))]
         public decimal CostPrice { get; set; }
 
         [JsonPropertyName("sale_price")]
+        [JsonConverter(typeof(MoneySerializer))]
         public decimal SalePrice { get; set; }
     }
 }
