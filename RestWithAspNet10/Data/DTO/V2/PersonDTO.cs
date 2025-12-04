@@ -1,4 +1,5 @@
-﻿using System.Text.Json.Serialization;
+﻿using RestWithAspNet10.JsonConverters;
+using System.Text.Json.Serialization;
 
 namespace RestWithAspNet10.Data.DTO.V2
 {
@@ -15,8 +16,11 @@ namespace RestWithAspNet10.Data.DTO.V2
 
         public string? Address { get; set; }
 
+        [JsonConverter(typeof(GenderConverter))]
         public string? Gender { get; set; }
 
+        [JsonPropertyName("birth_day")]
+        [JsonConverter(typeof(DateConverter))]
         public DateTime? BirthDay { get; set; }
     }
 }

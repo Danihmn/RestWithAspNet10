@@ -2,16 +2,16 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace RestWithAspNet10.JsonSerializers
+namespace RestWithAspNet10.JsonConverters
 {
-    public class MoneySerializer : JsonConverter<decimal>
+    public class MoneyConverter : JsonConverter<decimal>
     {
         private readonly string _culture;
         private readonly string _format;
 
-        public MoneySerializer () : this("pt-BR", "C") { }
+        public MoneyConverter () : this("pt-BR", "C") { }
 
-        public MoneySerializer (string culture, string format)
+        public MoneyConverter (string culture, string format)
         {
             _culture = culture;
             _format = format;
