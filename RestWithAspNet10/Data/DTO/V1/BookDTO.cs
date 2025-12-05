@@ -2,18 +2,18 @@
 
 namespace RestWithAspNet10.Data.DTO.V1
 {
-    public class BookDTO
+    public record BookDTO
     {
         [JsonPropertyName("identifier")]
-        public long Id { get; set; }
+        public long Id { get; init; }
 
-        public string? Title { get; set; }
+        public string? Title { get; init; }
 
-        public string? Author { get; set; }
+        public string? Author { get; init; }
 
-        public decimal Price { get; set; }
+        public decimal Price { get; init; }
 
         [JsonPropertyName("launch_date")]
-        public DateTime LaunchDate { get; set; }
+        public DateTime LaunchDate { get; init; }
     }
 }

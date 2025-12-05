@@ -3,28 +3,28 @@ using System.Text.Json.Serialization;
 
 namespace RestWithAspNet10.Data.DTO.V1
 {
-    public class ProductDTO
+    public record ProductDTO
     {
         [JsonPropertyName("identifier")]
-        public long Id { get; set; }
+        public long Id { get; init; }
 
-        public string? Name { get; set; }
+        public string? Name { get; init; }
 
-        public string? Description { get; set; }
+        public string? Description { get; init; }
 
-        public string? Brand { get; set; }
+        public string? Brand { get; init; }
 
         [JsonPropertyName("quantity_stock")]
-        public int QuantityStock { get; set; }
+        public int QuantityStock { get; init; }
 
         [JsonPropertyName("cost_price")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWriting)]
         [JsonConverter(typeof(MoneyConverter))]
-        public decimal CostPrice { get; set; }
+        public decimal CostPrice { get; init; }
 
         [JsonPropertyName("sale_price")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenReading)]
         [JsonConverter(typeof(MoneyConverter))]
-        public decimal SalePrice { get; set; }
+        public decimal SalePrice { get; init; }
     }
 }
