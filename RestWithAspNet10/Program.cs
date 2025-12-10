@@ -16,7 +16,7 @@ namespace RestWithAspNet10
 
             builder.AddSerilogLogging();
 
-            builder.Services.AddControllers();
+            builder.Services.AddControllers().AddContentNegotiation();
 
             builder.Services.AddDatabaseConfiguration(builder.Configuration);
 
