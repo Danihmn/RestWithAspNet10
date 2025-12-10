@@ -1,4 +1,6 @@
-﻿namespace RestWithAspNet10.Configurations
+﻿using Microsoft.Net.Http.Headers;
+
+namespace RestWithAspNet10.Configurations
 {
     public static class ContentNegotiationConfiguration
     {
@@ -8,9 +10,15 @@
             {
                 options.RespectBrowserAcceptHeader = true;
                 options.ReturnHttpNotAcceptable = true;
-                options.FormatterMappings.SetMediaTypeMappingForFormat("xml", "application/xml");
-                options.FormatterMappings.SetMediaTypeMappingForFormat("json", "application/json");
-            }).AddXmlSerializerFormatters();
+
+                options.FormatterMappings.SetMediaTypeMappingForFormat(
+                    "xml", MediaTypeHeaderValue.Parse("application/xml"));
+
+                options.FormatterMappings.SetMediaTypeMappingForFormat(
+                    "json", MediaTypeHeaderValue.Parse("application/json"));
+            })
+            .AddXmlSerializerFormatters();
+
         }
     }
 }
