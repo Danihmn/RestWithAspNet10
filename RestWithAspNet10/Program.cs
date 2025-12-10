@@ -18,6 +18,10 @@ namespace RestWithAspNet10
 
             builder.Services.AddControllers().AddContentNegotiation();
 
+            builder.Services.AddEndpointsApiExplorer();
+            builder.Services.AddOpenAPIConfiguration();
+            builder.Services.AddSwaggerConfiguration();
+
             builder.Services.AddDatabaseConfiguration(builder.Configuration);
 
             builder.Services.AddScoped<IPersonService<RestWithAspNet10.Data.DTO.V1.PersonDTO>,
@@ -36,16 +40,13 @@ namespace RestWithAspNet10
 
             var app = builder.Build();
 
-            if (app.Environment.IsDevelopment())
-            {
-                app.MapOpenApi();
-            }
-
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
 
             app.MapControllers();
+
+            app.UseSwaggerConfiguration();
 
             app.Run();
         }
