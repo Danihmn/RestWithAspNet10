@@ -9,6 +9,7 @@ namespace RestWithAspNet10.Configurations
 
         public static IServiceCollection AddOpenAPIConfiguration (this IServiceCollection services)
         {
+            // Registers the OpenAPI information for dependency injection
             services.AddSingleton(new OpenApiInfo
             {
                 Title = AppName,

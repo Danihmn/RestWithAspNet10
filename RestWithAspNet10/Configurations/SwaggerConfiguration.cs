@@ -9,8 +9,10 @@ namespace RestWithAspNet10.Configurations
 
         public static IServiceCollection AddSwaggerConfiguration (this IServiceCollection services)
         {
+            // Registers the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(options =>
             {
+                // Defines the Swagger document information
                 options.SwaggerDoc("v1", new OpenApiInfo
                 {
                     Title = AppName,
@@ -30,8 +32,9 @@ namespace RestWithAspNet10.Configurations
             return services;
         }
 
-        public static IApplicationBuilder UseSwaggerConfiguration (this IApplicationBuilder app)
+        public static IApplicationBuilder UseSwaggerDocumentation (this IApplicationBuilder app)
         {
+            // Enables the middleware to serve generated Swagger as a JSON endpoint
             app.UseSwagger();
             app.UseSwaggerUI(options =>
             {
