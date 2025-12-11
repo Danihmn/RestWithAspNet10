@@ -18,6 +18,9 @@ namespace RestWithAspNet10.Controllers.V1
         }
 
         [HttpGet]
+        [ProducesResponseType(200, Type = typeof(List<ProductDTO>))]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
         public IActionResult GetAll ()
         {
             _logger.LogInformation("Buscando todos os produtos");
@@ -29,6 +32,9 @@ namespace RestWithAspNet10.Controllers.V1
         }
 
         [HttpGet("{id}")]
+        [ProducesResponseType(200, Type = typeof(ProductDTO))]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
         public IActionResult GetById (long id)
         {
             _logger.LogInformation($"Buscando produto pelo Id {id}");
@@ -48,6 +54,9 @@ namespace RestWithAspNet10.Controllers.V1
         }
 
         [HttpPost]
+        [ProducesResponseType(200, Type = typeof(ProductDTO))]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
         public IActionResult Create ([FromBody] ProductDTO product)
         {
             _logger.LogInformation($"Criando novo produto: {product.Name}");
@@ -67,6 +76,9 @@ namespace RestWithAspNet10.Controllers.V1
         }
 
         [HttpPut("{id}")]
+        [ProducesResponseType(200, Type = typeof(ProductDTO))]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
         public IActionResult Update (long id, [FromBody] ProductDTO product)
         {
             _logger.LogInformation($"Alterando produto ID {id}: {product.Name}");
@@ -88,6 +100,9 @@ namespace RestWithAspNet10.Controllers.V1
         }
 
         [HttpDelete("{id}")]
+        [ProducesResponseType(204, Type = typeof(ProductDTO))]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
         public IActionResult Delete (long id)
         {
             ProductDTO product = _productService.FindById(id);

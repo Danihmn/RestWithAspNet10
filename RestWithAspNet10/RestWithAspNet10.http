@@ -1,6 +1,6 @@
 @RestWithAspNet10_HostAddress = http://localhost:5278
 
-GET {{RestWithAspNet10_HostAddress}}/weatherforecast/
+GET {{RestWithAspNet10_HostAddress}}/swagger-ui/index.html/
 Accept: application/json
 
 ###

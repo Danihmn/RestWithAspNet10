@@ -18,6 +18,9 @@ namespace RestWithAspNet10.Controllers.V2
         }
 
         [HttpGet]
+        [ProducesResponseType(200, Type = typeof(List<PersonDTO>))]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
         public IActionResult GetAll ()
         {
             _logger.LogInformation("Buscando todas as pessoas");
@@ -25,6 +28,9 @@ namespace RestWithAspNet10.Controllers.V2
         }
 
         [HttpGet("{id}")]
+        [ProducesResponseType(200, Type = typeof(PersonDTO))]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
         public IActionResult GetById (long id)
         {
             _logger.LogInformation($"Buscando pessoa pelo Id {id}");

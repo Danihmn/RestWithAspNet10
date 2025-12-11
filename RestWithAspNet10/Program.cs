@@ -23,9 +23,10 @@ namespace RestWithAspNet10
 
             builder.Services.AddEndpointsApiExplorer();
 
-            // Adds the OpenAPI/Swagger configuration
+            // Adds the OpenAPI, Swagger and Route customization configuration
             builder.Services.AddOpenAPIConfiguration();
             builder.Services.AddSwaggerConfiguration();
+            builder.Services.AddRouteConfiguration();
 
             // Adds the Database configuration
             builder.Services.AddDatabaseConfiguration(builder.Configuration);

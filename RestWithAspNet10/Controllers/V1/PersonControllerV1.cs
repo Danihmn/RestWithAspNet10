@@ -18,6 +18,9 @@ namespace RestWithAspNet10.Controllers.V1
         }
 
         [HttpGet]
+        [ProducesResponseType(200, Type = typeof(List<PersonDTO>))]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
         public IActionResult GetAll ()
         {
             _logger.LogInformation("Buscando todas as pessoas");
@@ -29,6 +32,9 @@ namespace RestWithAspNet10.Controllers.V1
         }
 
         [HttpGet("{id}")]
+        [ProducesResponseType(200, Type = typeof(PersonDTO))]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
         public IActionResult GetById (long id)
         {
             _logger.LogInformation($"Buscando pessoa pelo Id {id}");
@@ -48,6 +54,9 @@ namespace RestWithAspNet10.Controllers.V1
         }
 
         [HttpPost]
+        [ProducesResponseType(200, Type = typeof(PersonDTO))]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
         public IActionResult Create ([FromBody] PersonDTO person)
         {
             PersonDTO createdPerson = _personService.Create(person);
@@ -67,6 +76,9 @@ namespace RestWithAspNet10.Controllers.V1
         }
 
         [HttpPut]
+        [ProducesResponseType(200, Type = typeof(PersonDTO))]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
         public IActionResult Update ([FromBody] PersonDTO person, long id)
         {
             PersonDTO updatedPerson = _personService.Update(person);
@@ -88,6 +100,9 @@ namespace RestWithAspNet10.Controllers.V1
         }
 
         [HttpDelete("{id}")]
+        [ProducesResponseType(204, Type = typeof(PersonDTO))]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
         public IActionResult Delete (long id)
         {
             if (_personService.FindById(id) == null) return NotFound();
