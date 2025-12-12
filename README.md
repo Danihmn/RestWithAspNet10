@@ -16,7 +16,7 @@
 - Versionamento de API
 - Padrão DTO (Data Transfer Object)
 - Tratamento de erros e validações
-- Swagger/OpenAPI — Documentação
+- Swagger/OpenAPI
 
 ## 🗂️ Organização da Solução
 ### A solução contém dois projetos:
