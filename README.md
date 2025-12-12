@@ -2,12 +2,12 @@
 
 ## 🚀 Tecnologias Utilizadas
 
-- ASP.NET 10 — Framework principal para construção da API
-- Visual Studio 2026 — Ambiente de desenvolvimento
-- Postman — Ferramenta para testes de requisições HTTP
-- SQL Server — Banco de dados relacional
-- SQL Server Management Studio (SSMS) — Gerenciamento do banco de dados
-- Docker — Containerização da aplicação e banco de dados
+- ASP.NET 10
+- Visual Studio 2026
+- Postman
+- SQL Server
+- SQL Server Management Studio (SSMS) 
+- Docker
   
 ## 🛠️ Principais Implementações
 - Entity Framework Core
