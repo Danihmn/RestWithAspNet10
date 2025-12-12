@@ -10,13 +10,13 @@
 - Docker — Containerização da aplicação e banco de dados
   
 ## 🛠️ Principais Implementações
-- Entity Framework Core — ORM para mapeamento objeto-relacional
-- xUnit — Framework de testes unitários
-- Serilog — Logging estruturado e configurável
-- Versionamento de API — Suporte a múltiplas versões da API
-- Padrão DTO (Data Transfer Object) — Separação entre modelos de domínio e dados expostos
-- Tratamento de erros e validações — Middleware para respostas padronizadas
-- Swagger/OpenAPI — Documentação interativa da API
+- Entity Framework Core
+- xUnit
+- Serilog
+- Versionamento de API
+- Padrão DTO (Data Transfer Object)
+- Tratamento de erros e validações
+- Swagger/OpenAPI — Documentação
 
 ## 🗂️ Organização da Solução
 ### A solução contém dois projetos:
