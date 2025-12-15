@@ -52,8 +52,9 @@ namespace RestWithAspNet10
 
             app.MapControllers();
 
-            // Enables the OpenAPI/Swagger middlewares
+            // Enables the API documentation
             app.UseSwaggerDocumentation();
+            app.UseScalarDocumentation();
 
             app.Run();
         }
