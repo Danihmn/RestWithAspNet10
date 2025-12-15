@@ -23,6 +23,12 @@ bld/
 [Ll]og/
 [Ll]ogs/
 
+# Pasta de publish do .NET
+publish/
+**/publish/
+Publish/
+**/Publish/
+
 # .NET Core
 project.lock.json
 project.fragment.lock.json
