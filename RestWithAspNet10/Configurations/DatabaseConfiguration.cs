@@ -7,7 +7,7 @@ namespace RestWithAspNet10.Configurations
     {
         public static IServiceCollection AddDatabaseConfiguration (this IServiceCollection services, IConfiguration configuration)
         {
-            var connectionString = configuration["MSSQLServerConnection:DefaultConnection"];
+            var connectionString = configuration["ConnectionStrings:DefaultConnection"];
 
             if (string.IsNullOrEmpty(connectionString))
                 throw new ArgumentNullException("Connection string 'MSSQLServer não encontrada");
