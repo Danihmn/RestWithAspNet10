@@ -3,7 +3,7 @@ using RestWithAspNet10.Data.Converters.Implementations;
 using RestWithAspNet10.Data.DTO.V1;
 using RestWithAspNet10.Models;
 
-namespace RestWithAspNet10.Tests
+namespace RestWithAspNet10.Tests.UnitTests
 {
     public class ProductConverterTests
     {

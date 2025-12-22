@@ -17,7 +17,8 @@ namespace RestWithAspNet10.Configurations
                 Description = AppDescription,
                 Contact = new OpenApiContact
                 {
-                    Name = "Daniel Eduardo Pratta Bezerra",
+                    Name = "Daniel Eduardo Pratta Bezerra",              ,
+                    mn                        QAA                                                                                                        V      V V V V V  V CVV CV   C         BNM
                     Email = "daniel.bezerra.mult@outlook.com"
                 }
             });
