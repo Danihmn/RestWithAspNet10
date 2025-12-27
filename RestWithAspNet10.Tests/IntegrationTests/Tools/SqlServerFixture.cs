@@ -17,16 +17,17 @@ namespace RestWithAspNet10.Tests.IntegrationTests.Tools
 
         public async Task InitializeAsync ()
         {
-            await Container.StartAsync();
-            await ApplyMigrationsAsync();
+            await Container.StartAsync(); // Creates the database
+            await Task.Delay(TimeSpan.FromSeconds(3)); // Ensures that SQL Server is ready
+            await ApplyMigrationsAsync(); // Run the migrations
         }
 
         private async Task ApplyMigrationsAsync ()
         {
-            var optionsBuilder = new DbContextOptionsBuilder<MsSqlContext>();
+            DbContextOptionsBuilder<MsSqlContext> optionsBuilder = new();
             optionsBuilder.UseSqlServer(ConnectionString);
 
-            using var context = new MsSqlContext(optionsBuilder.Options);
+            using MsSqlContext context = new(optionsBuilder.Options);
 
             await context.Database.MigrateAsync();
         }
