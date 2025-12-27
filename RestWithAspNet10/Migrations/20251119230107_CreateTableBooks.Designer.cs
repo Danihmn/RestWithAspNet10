@@ -12,7 +12,7 @@ using RestWithAspNet10.Data.Context;
 
 namespace RestWithAspNet10.Migrations
 {
-    [DbContext(typeof(MSSQLContext))]
+    [DbContext(typeof(MsSqlContext))]
     [Migration("20251119230107_CreateTableBooks")]
     partial class CreateTableBooks
     {

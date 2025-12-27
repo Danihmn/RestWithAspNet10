@@ -11,7 +11,7 @@ using RestWithAspNet10.Data.Context;
 
 namespace RestWithAspNet10.Migrations
 {
-    [DbContext(typeof(MSSQLContext))]
+    [DbContext(typeof(MsSqlContext))]
     [Migration("20251119213400_FirstMigration")]
     partial class FirstMigration
     {

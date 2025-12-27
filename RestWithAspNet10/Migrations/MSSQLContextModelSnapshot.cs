@@ -10,7 +10,7 @@ using RestWithAspNet10.Data.Context;
 
 namespace RestWithAspNet10.Migrations
 {
-    [DbContext(typeof(MSSQLContext))]
+    [DbContext(typeof(MsSqlContext))]
     partial class MSSQLContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

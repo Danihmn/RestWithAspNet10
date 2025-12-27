@@ -3,9 +3,9 @@ using RestWithAspNet10.Models;
 
 namespace RestWithAspNet10.Data.Context
 {
-    public class MSSQLContext : DbContext
+    public class MsSqlContext : DbContext
     {
-        public MSSQLContext (DbContextOptions<MSSQLContext> options) : base(options) { }
+        public MsSqlContext (DbContextOptions<MsSqlContext> options) : base(options) { }
 
         public DbSet<PersonModel> Persons { get; set; }
         public DbSet<BookModel> Books { get; set; }

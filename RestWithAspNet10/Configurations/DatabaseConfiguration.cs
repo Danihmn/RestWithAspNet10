@@ -12,7 +12,7 @@ namespace RestWithAspNet10.Configurations
             if (string.IsNullOrEmpty(connectionString))
                 throw new ArgumentNullException("Connection string 'MSSQLServer não encontrada");
 
-            services.AddDbContext<MSSQLContext>(options => options.UseSqlServer(connectionString));
+            services.AddDbContext<MsSqlContext>(options => options.UseSqlServer(connectionString));
 
             return services;
         }

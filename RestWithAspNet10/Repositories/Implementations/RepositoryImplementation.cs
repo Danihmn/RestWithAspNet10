@@ -7,10 +7,10 @@ namespace RestWithAspNet10.Repositories.Implementations
 {
     public class RepositoryImplementation<T> : IRepository<T> where T : ModelBase
     {
-        private MSSQLContext _context;
+        private MsSqlContext _context;
         private DbSet<T> _dataSet;
 
-        public RepositoryImplementation (MSSQLContext context)
+        public RepositoryImplementation (MsSqlContext context)
         {
             _context = context;
             _dataSet = context.Set<T>();
