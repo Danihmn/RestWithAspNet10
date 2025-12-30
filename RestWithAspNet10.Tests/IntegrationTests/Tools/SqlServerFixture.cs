@@ -10,7 +10,7 @@ namespace RestWithAspNet10.Tests.IntegrationTests.Tools
 
         public string ConnectionString => Container.GetConnectionString();
 
-        SqlServerFixture ()
+        public SqlServerFixture ()
         {
             Container = new MsSqlBuilder().WithPassword("Admin1234").Build();
         }

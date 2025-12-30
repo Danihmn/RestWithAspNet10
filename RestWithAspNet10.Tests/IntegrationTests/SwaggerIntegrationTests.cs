@@ -1,0 +1,39 @@
+﻿using FluentAssertions;
+using Microsoft.AspNetCore.Mvc.Testing;
+using RestWithAspNet10.Tests.IntegrationTests.Tools;
+
+namespace RestWithAspNet10.Tests.IntegrationTests
+{
+    public class SwaggerIntegrationTests : IClassFixture<SqlServerFixture>
+    {
+        private readonly HttpClient _httpClient;
+
+        public SwaggerIntegrationTests (SqlServerFixture sqlServerFixture)
+        {
+            var factory = new CustomWebApplicationFactory<Program>(
+                sqlServerFixture.ConnectionString);
+
+            _httpClient = factory.CreateClient(
+                new WebApplicationFactoryClientOptions
+                {
+                    BaseAddress = new Uri("http://localhost")
+                }
+            );
+        }
+
+        [Fact]
+        public async Task Get_SwaggerJson_ShouldReturnSwaggerJson ()
+        {
+            // Arrange & Act
+            var response = await _httpClient.GetAsync("/swagger/v1/swagger.json");
+
+            // Assert
+            response.EnsureSuccessStatusCode();
+
+            var content = await response.Content.ReadAsStringAsync();
+
+            content.Should().NotBeNull();
+            content.Should().Contain("/api/v1/person");
+        }
+    }
+}
