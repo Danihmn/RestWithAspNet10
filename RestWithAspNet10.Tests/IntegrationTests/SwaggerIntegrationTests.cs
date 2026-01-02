@@ -35,5 +35,20 @@ namespace RestWithAspNet10.Tests.IntegrationTests
             content.Should().NotBeNull();
             content.Should().Contain("/api/v1/person");
         }
+
+        [Fact]
+        public async Task SwaggerUi_ShouldReturnSwaggerUi ()
+        {
+            // Arrange & Act
+            var response = await _httpClient.GetAsync("/swagger-ui/index.html");
+
+            // Assert
+            response.EnsureSuccessStatusCode();
+
+            var content = await response.Content.ReadAsStringAsync();
+
+            content.Should().NotBeNull();
+            content.Should().Contain("<div id=\"swagger-ui\">");
+        }
     }
 }
