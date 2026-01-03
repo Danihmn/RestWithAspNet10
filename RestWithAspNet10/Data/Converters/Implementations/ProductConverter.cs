@@ -39,7 +39,6 @@ namespace RestWithAspNet10.Data.Converters.Implementations
         {
             if (origin == null) return null;
             return origin.Select(item => Parse(item)).ToList();
-
         }
 
         public List<ProductModel> ParseList (List<ProductDTO> origin)
