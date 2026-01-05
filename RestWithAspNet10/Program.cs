@@ -28,6 +28,9 @@ namespace RestWithAspNet10
             builder.Services.AddSwaggerConfiguration();
             builder.Services.AddRouteConfiguration();
 
+            // Adds the CORS Policies
+            builder.Services.AddCorsConfiguration(builder.Configuration);
+
             // Adds the Database configuration
             builder.Services.AddDatabaseConfiguration(builder.Configuration);
 
@@ -49,6 +52,10 @@ namespace RestWithAspNet10
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
+            app.UseRouting();
+
+            // Enables the CORS Configurations
+            app.UseCorsConfiguration();
 
             app.MapControllers();
 
