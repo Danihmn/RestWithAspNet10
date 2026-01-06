@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Cors;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using RestWithAspNet10.Data.DTO.V1;
 using RestWithAspNet10.Services;
 
@@ -7,7 +6,6 @@ namespace RestWithAspNet10.Controllers.V1
 {
     [ApiController]
     [Route("api/v1/[controller]")]
-    [EnableCors("LocalPolicy")]
     public class ProductController : ControllerBase
     {
         private readonly IProductService _productService;
