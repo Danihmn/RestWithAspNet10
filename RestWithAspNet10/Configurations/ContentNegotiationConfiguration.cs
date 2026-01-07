@@ -18,7 +18,6 @@ namespace RestWithAspNet10.Configurations
                     "json", MediaTypeHeaderValue.Parse("application/json"));
             })
             .AddXmlSerializerFormatters();
-
         }
     }
 }

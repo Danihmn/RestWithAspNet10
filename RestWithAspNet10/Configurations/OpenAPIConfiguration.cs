@@ -13,7 +13,7 @@ namespace RestWithAspNet10.Configurations
             services.AddSingleton(new OpenApiInfo
             {
                 Title = AppName,
-                Version = "v1",
+                Version = "v2",
                 Description = AppDescription,
                 Contact = new OpenApiContact
                 {

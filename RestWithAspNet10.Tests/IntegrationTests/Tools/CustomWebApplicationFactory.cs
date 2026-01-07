@@ -17,14 +17,20 @@ namespace RestWithAspNet10.Tests.IntegrationTests.Tools
         {
             builder.ConfigureAppConfiguration((context, config) =>
             {
-                var dictionary = new Dictionary<string, string>
+                var allowedDomainDictionary = new Dictionary<string, string>
+                {
+                    ["Cors:Origins"] = "http://localhost:3000",
+                };
+
+                var connectionStringDictionary = new Dictionary<string, string>
                 {
                     {
                         "ConnectionStrings:DefaultConnection", _connectionString
                     }
                 };
 
-                config.AddInMemoryCollection(dictionary!);
+                config.AddInMemoryCollection(allowedDomainDictionary!);
+                config.AddInMemoryCollection(connectionStringDictionary!);
             });
         }
     }

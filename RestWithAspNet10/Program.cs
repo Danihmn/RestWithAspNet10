@@ -55,7 +55,7 @@ namespace RestWithAspNet10
             app.UseRouting();
 
             // Enables the CORS Configurations
-            app.UseCorsConfiguration();
+            app.UseCorsConfiguration(builder.Configuration);
 
             app.MapControllers();
 
