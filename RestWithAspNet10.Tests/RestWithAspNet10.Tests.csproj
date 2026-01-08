@@ -32,6 +32,7 @@
 
 	<ItemGroup>
 	  <Folder Include="IntegrationTests\Cors\" />
+	  <Folder Include="IntegrationTests\Product\Xml\" />
 	</ItemGroup>
 
 </Project>
