@@ -122,7 +122,7 @@ namespace RestWithAspNet10.Controllers.V1
             return NoContent();
         }
 
-        [HttpPatch("{Id}")]
+        [HttpPatch("{id}")]
         [ProducesResponseType(204, Type = typeof(ProductDTO))]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
