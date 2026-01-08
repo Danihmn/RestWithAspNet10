@@ -42,6 +42,9 @@ namespace RestWithAspNet10
             builder.Services.AddScoped<IBookService, BookServiceImplementation>();
             builder.Services.AddScoped<IProductService, ProductServiceImplementation>();
 
+            // Custom Repository injection
+            builder.Services.AddScoped<IProductRepository, ProductRepositoryImplementation>();
+
             // Generic Repository injection
             builder.Services.AddScoped(typeof(IRepository<>), typeof(RepositoryImplementation<>));
 

@@ -31,5 +31,8 @@ namespace RestWithAspNet10.Models
         [Column("cost_price", TypeName = "decimal(10,2)")]
         public decimal CostPrice { get; set; }
 
+        [Required]
+        [Column("enabled")]
+        public bool? Enabled { get; set; }
     }
 }

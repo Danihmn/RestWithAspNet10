@@ -9,5 +9,6 @@ namespace RestWithAspNet10.Services
         ProductDTO Create (ProductDTO product);
         ProductDTO Update (ProductDTO product);
         void Delete (long id);
+        ProductDTO Disable (long id);
     }
 }

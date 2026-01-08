@@ -7,10 +7,10 @@ namespace RestWithAspNet10.Services.Implementations
 {
     public class ProductServiceImplementation : IProductService
     {
-        private readonly IRepository<ProductModel> _repository;
+        private readonly IProductRepository _repository;
         private readonly ProductConverter _converter;
 
-        public ProductServiceImplementation (IRepository<ProductModel> repository)
+        public ProductServiceImplementation (IProductRepository repository)
         {
             _repository = repository;
             _converter = new ProductConverter();
@@ -27,17 +27,17 @@ namespace RestWithAspNet10.Services.Implementations
 
         }
 
-        public ProductDTO Create (ProductDTO person)
+        public ProductDTO Create (ProductDTO product)
         {
-            ProductModel entity = _converter.Parse(person);
+            ProductModel entity = _converter.Parse(product);
             entity = _repository.Create(entity);
 
             return _converter.Parse(entity);
         }
 
-        public ProductDTO Update (ProductDTO person)
+        public ProductDTO Update (ProductDTO product)
         {
-            ProductModel entity = _converter.Parse(person);
+            ProductModel entity = _converter.Parse(product);
             entity = _repository.Update(entity);
 
             return _converter.Parse(entity);
@@ -46,6 +46,11 @@ namespace RestWithAspNet10.Services.Implementations
         public void Delete (long id)
         {
             _repository.Delete(id);
+        }
+
+        public ProductDTO Disable (long id)
+        {
+            return _converter.Parse(_repository.Disable(id));
         }
     }
 }

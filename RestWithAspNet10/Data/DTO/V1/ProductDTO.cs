@@ -26,5 +26,7 @@ namespace RestWithAspNet10.Data.DTO.V1
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenReading)]
         [JsonConverter(typeof(MoneyConverter))]
         public decimal SalePrice { get; init; }
+
+        public bool? Enabled { get; set; }
     }
 }

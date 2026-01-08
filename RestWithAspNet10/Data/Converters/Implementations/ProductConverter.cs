@@ -17,6 +17,7 @@ namespace RestWithAspNet10.Data.Converters.Implementations
                 Brand = origin.Brand,
                 QuantityStock = origin.QuantityStock,
                 SalePrice = origin.SalePrice,
+                Enabled = origin.Enabled,
             };
         }
 
@@ -31,7 +32,8 @@ namespace RestWithAspNet10.Data.Converters.Implementations
                 Brand = origin.Brand,
                 QuantityStock = origin.QuantityStock,
                 CostPrice = origin.CostPrice,
-                SalePrice = origin.CostPrice * 2
+                SalePrice = origin.CostPrice * 2,
+                Enabled = origin.Enabled,
             };
         }
 

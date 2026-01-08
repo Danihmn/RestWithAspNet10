@@ -106,6 +106,7 @@ namespace RestWithAspNet10.Controllers.V1
         public IActionResult Delete (long id)
         {
             ProductDTO product = _productService.FindById(id);
+
             if (product == null)
             {
                 _logger.LogWarning($"Produto com ID {id} não encontrado para exclusão");
@@ -119,6 +120,26 @@ namespace RestWithAspNet10.Controllers.V1
             Response.Headers.Append("X-API_Deprecation-Date", "2026-12-31");
 
             return NoContent();
+        }
+
+        [HttpPatch("{Id}")]
+        [ProducesResponseType(204, Type = typeof(ProductDTO))]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
+        public IActionResult Disable (long id)
+        {
+            ProductDTO product = _productService.FindById(id);
+
+            if (product == null)
+            {
+                _logger.LogWarning($"Produto com ID {id} não encontrado para desativação");
+                return NotFound();
+            }
+
+            _logger.LogInformation("Desativando produto com Id" + product.Id);
+            var disabledProduct = _productService.Disable(product.Id);
+
+            return Ok(disabledProduct);
         }
     }
 }
