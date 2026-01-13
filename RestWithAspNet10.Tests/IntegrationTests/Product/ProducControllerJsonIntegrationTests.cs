@@ -4,7 +4,7 @@ using RestWithAspNet10.Tests.IntegrationTests.Tools;
 using System.Net;
 using System.Net.Http.Json;
 
-namespace RestWithAspNet10.Tests.IntegrationTests
+namespace RestWithAspNet10.Tests.IntegrationTests.Product
 {
     public class ProducControllerJsonIntegrationTests : IClassFixture<SqlServerFixture>
     {
