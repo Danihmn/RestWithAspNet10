@@ -1,4 +1,5 @@
 using RestWithAspNet10.Configurations;
+using RestWithAspNet10.Hypermedia.Filters;
 using RestWithAspNet10.Repositories;
 using RestWithAspNet10.Repositories.Implementations;
 using RestWithAspNet10.Services;
@@ -19,7 +20,7 @@ namespace RestWithAspNet10
             builder.AddSerilogLogging();
 
             // Adds the Controllers, then the Content Negotiation configuration
-            builder.Services.AddControllers().AddContentNegotiation();
+            builder.Services.AddControllers(options => options.Filters.Add<HypermediaFilter>()).AddContentNegotiation();
 
             builder.Services.AddEndpointsApiExplorer();
 
@@ -30,6 +31,8 @@ namespace RestWithAspNet10
 
             // Adds the CORS Policies
             builder.Services.AddCorsConfiguration(builder.Configuration);
+            // Adds the HATEOAS configuration
+            builder.Services.AddHateoasConfiguration();
 
             // Adds the Database configuration
             builder.Services.AddDatabaseConfiguration(builder.Configuration);
@@ -61,6 +64,8 @@ namespace RestWithAspNet10
             app.UseCorsConfiguration(builder.Configuration);
 
             app.MapControllers();
+
+            app.UseHateoasRoutes();
 
             // Enables the API documentation
             app.UseSwaggerDocumentation();

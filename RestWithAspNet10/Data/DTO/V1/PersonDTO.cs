@@ -1,9 +1,11 @@
-﻿using RestWithAspNet10.JsonConverters;
+﻿using RestWithAspNet10.Hypermedia;
+using RestWithAspNet10.Hypermedia.Abstract;
+using RestWithAspNet10.JsonConverters;
 using System.Text.Json.Serialization;
 
 namespace RestWithAspNet10.Data.DTO.V1
 {
-    public record PersonDTO
+    public record PersonDTO : ISupportHypermedia
     {
         [JsonPropertyName("identifier")]
         public long Id { get; init; }
@@ -18,5 +20,8 @@ namespace RestWithAspNet10.Data.DTO.V1
 
         [JsonConverter(typeof(GenderConverter))]
         public string? Gender { get; init; }
+
+        // Receives or sets the hypermedia links
+        public List<HypermediaLink> Links { get; set; } = [];
     }
 }

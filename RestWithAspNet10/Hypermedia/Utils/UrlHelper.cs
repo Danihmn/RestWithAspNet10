@@ -11,6 +11,7 @@ namespace RestWithAspNet10.Hypermedia.Utils
         {
             lock (_lock)
             {
+                // Generate the URL using the provided route name and path
                 var url = urlHelper.Link(routeName, new { controller = path }) ?? string.Empty;
                 return url.Replace("%2F", "/").TrimEnd('/');
             }
