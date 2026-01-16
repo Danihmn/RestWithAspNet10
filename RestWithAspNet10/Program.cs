@@ -31,6 +31,7 @@ namespace RestWithAspNet10
 
             // Adds the CORS Policies
             builder.Services.AddCorsConfiguration(builder.Configuration);
+
             // Adds the HATEOAS configuration
             builder.Services.AddHateoasConfiguration();
 

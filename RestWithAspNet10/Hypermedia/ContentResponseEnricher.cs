@@ -7,16 +7,14 @@ namespace RestWithAspNet10.Hypermedia
 {
     public abstract class ContentResponseEnricher<T> : IResponseEnricher where T : ISupportHypermedia
     {
-        /// <summary>
-        /// Checks if the contextType is compatible with T or List of T
-        /// </summary>
-        /// <param name="contextType"></param>
-        /// <returns></returns>
+        // Checks if the contextType is compatible with T or List of T
         public virtual bool CanEnrich (Type contextType)
         {
             return contextType == typeof(T) || contextType == typeof(List<T>);
         }
 
+        // Method that is going to enrich the model with hypermedia links, will be implemented in the derived classes
+        // It is called for each item in the collection, in  HypermediaFilter
         protected abstract Task EnrichModel (T content, IUrlHelper urlHelper);
 
         bool IResponseEnricher.CanEnrich (ResultExecutingContext response)

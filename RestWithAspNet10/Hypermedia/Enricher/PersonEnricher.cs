@@ -9,7 +9,7 @@ namespace RestWithAspNet10.Hypermedia.Enricher
         protected override Task EnrichModel (PersonDTO content, IUrlHelper urlHelper)
         {
             // Creates a new HttpRequest based on the urlHelper's ActionContext
-            var request = urlHelper.ActionContext.HttpContext.Request;
+            HttpRequest request = urlHelper.ActionContext.HttpContext.Request;
             var baseUrl = $"{request.Scheme}://{request.Host.ToUriComponent()}{request.PathBase.ToUriComponent()}/api/v1/book";
 
             // Adds a self link to the Links collection of the PersonDTO

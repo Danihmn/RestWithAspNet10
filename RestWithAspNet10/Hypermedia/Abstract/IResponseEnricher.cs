@@ -7,7 +7,7 @@ namespace RestWithAspNet10.Hypermedia.Abstract
         /// <summary>
         /// Verifies if the response can be enriched
         /// </summary>
-        /// <param name="context"></param>
+        /// <param name="context">Contexto para interceptar a response</param>
         /// <returns></returns>
         bool CanEnrich (ResultExecutingContext context);
 

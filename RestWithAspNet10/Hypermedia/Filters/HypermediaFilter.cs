@@ -7,16 +7,14 @@ namespace RestWithAspNet10.Hypermedia.Filters
     {
         private readonly HypermediaFilterOptions _hypermediaFilterOptions = hypermediaFilterOptions;
 
+        // It is called for each request, to try to enrich the response with hypermedia links
         public override void OnResultExecuting (ResultExecutingContext context)
         {
             TryEnrichResult(context);
             base.OnResultExecuting(context);
         }
 
-        /// <summary>
-        /// Tries to enrich the request´s result using the appropriate enricher.
-        /// </summary>
-        /// <param name="context"></param>
+        // Tries to enrich the request´s result using the appropriate enricher.
         private void TryEnrichResult (ResultExecutingContext context)
         {
             // Verifies if the ObjectResult is successful
@@ -27,7 +25,6 @@ namespace RestWithAspNet10.Hypermedia.Filters
                     .ContentResponseEnricherList
                     .FirstOrDefault(option => option.CanEnrich(context));
 
-                // If an "CanEnrich == true" is found, use it to enrich the response
                 enricher?.Enrich(context).Wait(); // Using Wait() to call the async method in a sync context
             }
         }
