@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc;
 using RestWithAspNet10.Data.DTO.V1;
 using RestWithAspNet10.Services;
 
@@ -11,7 +12,7 @@ namespace RestWithAspNet10.Controllers.V1
         private readonly IProductService _productService;
         private readonly ILogger<ProductController> _logger;
 
-        public ProductController (IProductService productService, ILogger<ProductController> logger)
+        public ProductController(IProductService productService, ILogger<ProductController> logger)
         {
             _productService = productService;
             _logger = logger;
@@ -21,7 +22,7 @@ namespace RestWithAspNet10.Controllers.V1
         [ProducesResponseType(200, Type = typeof(List<ProductDTO>))]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
-        public IActionResult GetAll ()
+        public IActionResult GetAll()
         {
             _logger.LogInformation("Buscando todos os produtos");
 
@@ -35,7 +36,7 @@ namespace RestWithAspNet10.Controllers.V1
         [ProducesResponseType(200, Type = typeof(ProductDTO))]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
-        public IActionResult GetById (long id)
+        public IActionResult GetById(long id)
         {
             _logger.LogInformation($"Buscando produto pelo Id {id}");
 
@@ -53,11 +54,26 @@ namespace RestWithAspNet10.Controllers.V1
             return Ok(product);
         }
 
+        [HttpGet("brand")]
+        [ProducesResponseType(200, Type = typeof(List<ProductDTO>))]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
+        public IActionResult GetByBrand([FromQuery, Required] string brand)
+        {
+            _logger.LogInformation($"Buscando produtos pela marca {brand}");
+
+            if (brand == null)
+                return BadRequest(brand);
+
+            List<ProductDTO> products = _productService.FindByBrand(brand);
+            return Ok(products);
+        }
+
         [HttpPost]
         [ProducesResponseType(200, Type = typeof(ProductDTO))]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
-        public IActionResult Create ([FromBody] ProductDTO product)
+        public IActionResult Create([FromBody] ProductDTO product)
         {
             _logger.LogInformation($"Criando novo produto: {product.Name}");
 
@@ -79,7 +95,7 @@ namespace RestWithAspNet10.Controllers.V1
         [ProducesResponseType(200, Type = typeof(ProductDTO))]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
-        public IActionResult Update (long id, [FromBody] ProductDTO product)
+        public IActionResult Update(long id, [FromBody] ProductDTO product)
         {
             _logger.LogInformation($"Alterando produto ID {id}: {product.Name}");
 
@@ -103,7 +119,7 @@ namespace RestWithAspNet10.Controllers.V1
         [ProducesResponseType(204, Type = typeof(ProductDTO))]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
-        public IActionResult Delete (long id)
+        public IActionResult Delete(long id)
         {
             ProductDTO product = _productService.FindById(id);
 
@@ -126,7 +142,7 @@ namespace RestWithAspNet10.Controllers.V1
         [ProducesResponseType(204, Type = typeof(ProductDTO))]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
-        public IActionResult Disable (long id)
+        public IActionResult Disable(long id)
         {
             ProductDTO product = _productService.FindById(id);
 

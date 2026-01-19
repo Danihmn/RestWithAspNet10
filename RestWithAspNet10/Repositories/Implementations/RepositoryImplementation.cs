@@ -10,23 +10,23 @@ namespace RestWithAspNet10.Repositories.Implementations
         protected MsSqlContext _context;
         private DbSet<T> _dataSet;
 
-        public RepositoryImplementation (MsSqlContext context)
+        public RepositoryImplementation(MsSqlContext context)
         {
             _context = context;
             _dataSet = context.Set<T>();
         }
 
-        public List<T> FindAll ()
+        public List<T> FindAll()
         {
             return _dataSet.ToList();
         }
 
-        public T FindById (long id)
+        public T FindById(long id)
         {
             return _dataSet.Find(id);
         }
 
-        public T Create (T item)
+        public T Create(T item)
         {
             var createditem = _context.Add(item).Entity;
 
@@ -35,7 +35,7 @@ namespace RestWithAspNet10.Repositories.Implementations
             return createditem;
         }
 
-        public T Update (T item)
+        public T Update(T item)
         {
             try
             {
@@ -53,10 +53,9 @@ namespace RestWithAspNet10.Repositories.Implementations
                 Log.Error("Falha ao tentar alterar item: " + e.Message);
                 return null;
             }
-
         }
 
-        public void Delete (long id)
+        public void Delete(long id)
         {
             var existingItem = _dataSet.Find(id);
 
@@ -66,7 +65,7 @@ namespace RestWithAspNet10.Repositories.Implementations
             _context.SaveChanges();
         }
 
-        public bool Exists (long id)
+        public bool Exists(long id)
         {
             return _dataSet.Any(e => e.Id == id);
         }

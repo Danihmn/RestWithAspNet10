@@ -9,14 +9,14 @@ namespace RestWithAspNet10
 {
     public class Program
     {
-        public static void Main (string[] args)
+        public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
 
             // Registers the mappings for Mapster
             MapsterConfiguration.RegisterMappings();
 
-            // Adds the Serilog´s logging configuration
+            // Adds the Serilog logging configuration
             builder.AddSerilogLogging();
 
             // Adds the Controllers, then the Content Negotiation configuration

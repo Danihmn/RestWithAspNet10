@@ -5,7 +5,7 @@ namespace RestWithAspNet10.Configurations
 {
     public static class HateoasConfiguration
     {
-        public static IServiceCollection AddHateoasConfiguration (this IServiceCollection services)
+        public static IServiceCollection AddHateoasConfiguration(this IServiceCollection services)
         {
             var filterOptions = new HypermediaFilterOptions();
             filterOptions.ContentResponseEnricherList.Add(new PersonEnricher());
@@ -14,7 +14,7 @@ namespace RestWithAspNet10.Configurations
             return services;
         }
 
-        public static void UseHateoasRoutes (this IEndpointRouteBuilder app)
+        public static void UseHateoasRoutes(this IEndpointRouteBuilder app)
         {
             app.MapControllerRoute("Default", "{controller=values}/api/v1/{id?}");
         }

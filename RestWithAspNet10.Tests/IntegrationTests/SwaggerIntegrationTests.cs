@@ -8,7 +8,7 @@ namespace RestWithAspNet10.Tests.IntegrationTests
     {
         private readonly HttpClient _httpClient;
 
-        public SwaggerIntegrationTests (SqlServerFixture sqlServerFixture)
+        public SwaggerIntegrationTests(SqlServerFixture sqlServerFixture)
         {
             var factory = new CustomWebApplicationFactory<Program>(sqlServerFixture.ConnectionString);
 
@@ -21,7 +21,7 @@ namespace RestWithAspNet10.Tests.IntegrationTests
         }
 
         [Fact]
-        public async Task Get_SwaggerJson_ShouldReturnSwaggerJson ()
+        public async Task Get_SwaggerJson_ShouldReturnSwaggerJson()
         {
             // Arrange & Act
             var response = await _httpClient.GetAsync("/swagger/v1/swagger.json");
@@ -36,7 +36,7 @@ namespace RestWithAspNet10.Tests.IntegrationTests
         }
 
         [Fact]
-        public async Task SwaggerUI_ShouldReturnSwaggerUI ()
+        public async Task SwaggerUI_ShouldReturnSwaggerUI()
         {
             // Arrange & Act
             var response = await _httpClient.GetAsync("/swagger-ui/index.html");

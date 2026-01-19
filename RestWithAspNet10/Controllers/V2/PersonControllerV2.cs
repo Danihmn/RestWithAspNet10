@@ -11,7 +11,7 @@ namespace RestWithAspNet10.Controllers.V2
         private readonly IPersonService<PersonDTO> _personService;
         private readonly ILogger<PersonController> _logger;
 
-        public PersonController (IPersonService<PersonDTO> personService, ILogger<PersonController> logger)
+        public PersonController(IPersonService<PersonDTO> personService, ILogger<PersonController> logger)
         {
             _personService = personService;
             _logger = logger;
@@ -21,7 +21,7 @@ namespace RestWithAspNet10.Controllers.V2
         [ProducesResponseType(200, Type = typeof(List<PersonDTO>))]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
-        public IActionResult GetAll ()
+        public IActionResult GetAll()
         {
             _logger.LogInformation("Buscando todas as pessoas");
             return Ok(_personService.FindAll());
@@ -31,7 +31,7 @@ namespace RestWithAspNet10.Controllers.V2
         [ProducesResponseType(200, Type = typeof(PersonDTO))]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
-        public IActionResult GetById (long id)
+        public IActionResult GetById(long id)
         {
             _logger.LogInformation($"Buscando pessoa pelo Id {id}");
 

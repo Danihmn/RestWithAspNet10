@@ -21,8 +21,6 @@ namespace RestWithAspNet10.Models
         [Column("price", TypeName = "decimal(7,2)")]
         public decimal Price { get; set; }
 
-        [Required]
-        [Column("launch_date")]
-        public DateTime LaunchDate { get; set; }
+        [Required] [Column("launch_date")] public DateTime LaunchDate { get; set; }
     }
 }

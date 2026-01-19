@@ -2,8 +2,8 @@
 <!-- saved from url=(0014)about:internet -->
 <html xmlns:msxsl="urn:schemas-microsoft-com:xslt">
 <head>
-    <meta content="en-us" http-equiv="Content-Language" />
-    <meta content="text/html; charset=utf-16" http-equiv="Content-Type" />
+    <meta content="en-us" http-equiv="Content-Language"/>
+    <meta content="text/html; charset=utf-16" http-equiv="Content-Type"/>
     <title _locID="ConversionReport0">
         Relatório de Migração
     </title>
@@ -57,21 +57,21 @@
             font-size: 10pt;
         }
 
-            table th {
-                background: #E7E7E8;
-                text-align: left;
-                text-decoration: none;
-                font-weight: normal;
-                padding: 3px 6px 3px 6px;
-            }
+        table th {
+            background: #E7E7E8;
+            text-align: left;
+            text-decoration: none;
+            font-weight: normal;
+            padding: 3px 6px 3px 6px;
+        }
 
-            table td {
-                vertical-align: top;
-                padding: 3px 6px 5px 5px;
-                margin: 0px;
-                border: 1px solid #E7E7E8;
-                background: #F7F7F8;
-            }
+        table td {
+            vertical-align: top;
+            padding: 3px 6px 5px 5px;
+            margin: 0px;
+            border: 1px solid #E7E7E8;
+            background: #F7F7F8;
+        }
 
         /* Local link is a style for hyperlinks that link to file:/// content, there are lots so color them as 'normal' text until the user mouse overs */
         .localLink {
@@ -80,11 +80,11 @@
             text-decoration: none;
         }
 
-            .localLink:hover {
-                color: #1382CE;
-                background: #FFFF99;
-                text-decoration: none;
-            }
+        .localLink:hover {
+            color: #1382CE;
+            background: #FFFF99;
+            text-decoration: none;
+        }
 
         /* Center text, used in the over views cells that contain message level counts */
         .textCentered {
@@ -152,15 +152,15 @@
 
         // Startup
         // Hook up the the loaded event for the document/window, to linkify the document content
-        var startupFunction = function () { linkifyElement("messages"); };
+        var startupFunction = function () {
+            linkifyElement("messages");
+        };
 
         if (window.attachEvent) {
             window.attachEvent('onload', startupFunction);
-        }
-        else if (window.addEventListener) {
+        } else if (window.addEventListener) {
             window.addEventListener('load', startupFunction, false);
-        }
-        else {
+        } else {
             document.addEventListener('load', startupFunction, false);
         }
 
@@ -234,62 +234,107 @@
     </script>
 </head>
 <body>
-    <h1 _locID="ConversionReport">
-        Relatório de Migração -
-    </h1><div id="content">
-        <h2 _locID="OverviewTitle">Visão geral</h2><div id="overview"><table><tr><th></th><th _locID="ProjectTableHeader">Projeto</th><th _locID="PathTableHeader">Caminho</th><th _locID="ErrorsTableHeader">Erros</th><th _locID="WarningsTableHeader">Avisos</th><th _locID="MessagesTableHeader">Mensagens</th></tr><tr><td class="IconWarningEncoded" /><td><strong><a href="#Solution"><span _locID="OverviewSolutionSpan">Solução</span></a></strong></td><td>RestWithAspNet10.slnx</td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#SolutionWarning">1</a></td><td class="textCentered"><a href="#" onclick="ScrollToFirstVisibleMessage('Solution'); return false;">2</a></td></tr><tr><td class="IconSuccessEncoded" /><td><strong><a href="#RestWithAspNet10">RestWithAspNet10</a></strong></td><td>RestWithAspNet10.csproj</td><td class="textCentered"><a>0</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#">0</a></td></tr></table></div><h2 _locID="SolutionAndProjectsTitle">Solução e projetos</h2><div id="messages">
-            <a name="Solution" /><h3 _locID="ProjectDisplayNameHeader">Solução</h3><table>
-                <tr id="SolutionHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">Mensagem</th></tr>
-                <tr name="WarningRowClassSolution">
-                    <td class="IconWarningEncoded"><a name="SolutionWarning" /></td>
-                    <td class="messageCell">
-                        <strong>
-                            RestWithAspNet10.slnx:
-                        </strong><span>O Visual Studio precisa fazer alterações não funcionais a este projeto para permitir que ele seja aberto em versões liberadas do Visual Studio mais novas que o Visual Studio 2010 SP1 sem impactar o comportamento do projeto.</span>
-                    </td>
-                </tr>
-                <tr name="MessageRowHeaderShowSolution">
-                    <td class="IconInfoEncoded" />
-                    <td class="messageCell">
-                        <a _locID="ShowAdditionalMessages" href="#" name="SolutionMessage" onclick="ToggleMessageVisibility('Solution'); return false;">
-                            Mostrar 2 mensagens adicionais
-                        </a>
-                    </td>
-                </tr>
-                <tr name="MessageRowClassSolution" style="display: none">
-                    <td class="IconInfoEncoded"><a name="SolutionMessage" /></td>
-                    <td class="messageCell">
-                        <strong>
-                            RestWithAspNet10.slnx:
-                        </strong><span>Arquivo armazenado em backup com êxito como C:\dev_dotnet\ASP.NET\RestWithAspNet10\RestWithAspNet10\Backup\RestWithAspNet10.slnx</span>
-                    </td>
-                </tr>
-                <tr name="MessageRowClassSolution" style="display: none">
-                    <td class="IconInfoEncoded"><a name="SolutionMessage" /></td>
-                    <td class="messageCell">
-                        <strong>
-                            RestWithAspNet10.slnx:
-                        </strong><span>Solução migrada com êxito</span>
-                    </td>
-                </tr>
-                <tr style="display: none" name="MessageRowHeaderHideSolution">
-                    <td class="IconInfoEncoded" />
-                    <td class="messageCell">
-                        <a _locID="HideAdditionalMessages" href="#" name="SolutionMessage" onclick="ToggleMessageVisibility('Solution'); return false;">
-                            Ocultar 2 mensagens adicionais
-                        </a>
-                    </td>
-                </tr>
-            </table><a name="RestWithAspNet10" /><h3>RestWithAspNet10</h3><table>
-                <tr id="RestWithAspNet10HeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">Mensagem</th></tr>
-                <tr>
-                    <td class="IconInfoEncoded" />
-                    <td class="messageCell" _locID="NoMessagesRow">
-                        RestWithAspNet10 nenhuma mensagem registrada em log.
-                    </td>
-                </tr>
-            </table>
-        </div>
+<h1 _locID="ConversionReport">
+    Relatório de Migração -
+</h1>
+<div id="content">
+    <h2 _locID="OverviewTitle">Visão geral</h2>
+    <div id="overview">
+        <table>
+            <tr>
+                <th></th>
+                <th _locID="ProjectTableHeader">Projeto</th>
+                <th _locID="PathTableHeader">Caminho</th>
+                <th _locID="ErrorsTableHeader">Erros</th>
+                <th _locID="WarningsTableHeader">Avisos</th>
+                <th _locID="MessagesTableHeader">Mensagens</th>
+            </tr>
+            <tr>
+                <td class="IconWarningEncoded"/>
+                <td><strong><a href="#Solution"><span _locID="OverviewSolutionSpan">Solução</span></a></strong></td>
+                <td>RestWithAspNet10.slnx</td>
+                <td class="textCentered"><a>0</a></td>
+                <td class="textCentered"><a href="#SolutionWarning">1</a></td>
+                <td class="textCentered"><a href="#"
+                                            onclick="ScrollToFirstVisibleMessage('Solution'); return false;">2</a></td>
+            </tr>
+            <tr>
+                <td class="IconSuccessEncoded"/>
+                <td><strong><a href="#RestWithAspNet10">RestWithAspNet10</a></strong></td>
+                <td>RestWithAspNet10.csproj</td>
+                <td class="textCentered"><a>0</a></td>
+                <td class="textCentered"><a>0</a></td>
+                <td class="textCentered"><a href="#">0</a></td>
+            </tr>
+        </table>
     </div>
+    <h2 _locID="SolutionAndProjectsTitle">Solução e projetos</h2>
+    <div id="messages">
+        <a name="Solution"/>
+        <h3 _locID="ProjectDisplayNameHeader">Solução</h3>
+        <table>
+            <tr id="SolutionHeaderRow">
+                <th></th>
+                <th class="messageCell" _locID="MessageTableHeader">Mensagem</th>
+            </tr>
+            <tr name="WarningRowClassSolution">
+                <td class="IconWarningEncoded"><a name="SolutionWarning"/></td>
+                <td class="messageCell">
+                    <strong>
+                        RestWithAspNet10.slnx:
+                    </strong><span>O Visual Studio precisa fazer alterações não funcionais a este projeto para permitir que ele seja aberto em versões liberadas do Visual Studio mais novas que o Visual Studio 2010 SP1 sem impactar o comportamento do projeto.</span>
+                </td>
+            </tr>
+            <tr name="MessageRowHeaderShowSolution">
+                <td class="IconInfoEncoded"/>
+                <td class="messageCell">
+                    <a _locID="ShowAdditionalMessages" href="#" name="SolutionMessage"
+                       onclick="ToggleMessageVisibility('Solution'); return false;">
+                        Mostrar 2 mensagens adicionais
+                    </a>
+                </td>
+            </tr>
+            <tr name="MessageRowClassSolution" style="display: none">
+                <td class="IconInfoEncoded"><a name="SolutionMessage"/></td>
+                <td class="messageCell">
+                    <strong>
+                        RestWithAspNet10.slnx:
+                    </strong><span>Arquivo armazenado em backup com êxito como C:\dev_dotnet\ASP.NET\RestWithAspNet10\RestWithAspNet10\Backup\RestWithAspNet10.slnx</span>
+                </td>
+            </tr>
+            <tr name="MessageRowClassSolution" style="display: none">
+                <td class="IconInfoEncoded"><a name="SolutionMessage"/></td>
+                <td class="messageCell">
+                    <strong>
+                        RestWithAspNet10.slnx:
+                    </strong><span>Solução migrada com êxito</span>
+                </td>
+            </tr>
+            <tr style="display: none" name="MessageRowHeaderHideSolution">
+                <td class="IconInfoEncoded"/>
+                <td class="messageCell">
+                    <a _locID="HideAdditionalMessages" href="#" name="SolutionMessage"
+                       onclick="ToggleMessageVisibility('Solution'); return false;">
+                        Ocultar 2 mensagens adicionais
+                    </a>
+                </td>
+            </tr>
+        </table>
+        <a name="RestWithAspNet10"/>
+        <h3>RestWithAspNet10</h3>
+        <table>
+            <tr id="RestWithAspNet10HeaderRow">
+                <th></th>
+                <th class="messageCell" _locID="MessageTableHeader">Mensagem</th>
+            </tr>
+            <tr>
+                <td class="IconInfoEncoded"/>
+                <td class="messageCell" _locID="NoMessagesRow">
+                    RestWithAspNet10 nenhuma mensagem registrada em log.
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
 </body>
 </html>

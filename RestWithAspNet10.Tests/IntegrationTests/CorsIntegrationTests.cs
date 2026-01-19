@@ -8,7 +8,7 @@ namespace RestWithAspNet10.Tests.IntegrationTests
     {
         public readonly HttpClient _httpClient;
 
-        public CorsIntegrationTests (SqlServerFixture sqlServerFixture)
+        public CorsIntegrationTests(SqlServerFixture sqlServerFixture)
         {
             var factory = new CustomWebApplicationFactory<Program>(sqlServerFixture.ConnectionString);
 
@@ -21,7 +21,7 @@ namespace RestWithAspNet10.Tests.IntegrationTests
         }
 
         [Fact]
-        public async Task Cors_Should_Allow_Configured_Origins ()
+        public async Task Cors_Should_Allow_Configured_Origins()
         {
             // Arrange
             var origin = "http://localhost:3000";
@@ -41,7 +41,7 @@ namespace RestWithAspNet10.Tests.IntegrationTests
         }
 
         [Fact]
-        public async Task Cors_Should_Reject_Not_Configured_Origins ()
+        public async Task Cors_Should_Reject_Not_Configured_Origins()
         {
             // Arrange
             var origin = "http://evil-domain.com";
@@ -62,7 +62,7 @@ namespace RestWithAspNet10.Tests.IntegrationTests
         [InlineData("http://localhost:3000", true)]
         [InlineData("http://evil.com", false)]
         [InlineData("https://hacker.com", false)]
-        public async Task Cors_Should_Validate_Multiple_Origins (string origin, bool shouldAllow)
+        public async Task Cors_Should_Validate_Multiple_Origins(string origin, bool shouldAllow)
         {
             // Arrange
             var request = new HttpRequestMessage(HttpMethod.Get, "/api/v1/person");

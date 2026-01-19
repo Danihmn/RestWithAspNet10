@@ -4,7 +4,7 @@ namespace RestWithAspNet10.Configurations
 {
     public static class LoggingConfiguration
     {
-        public static void AddSerilogLogging (this WebApplicationBuilder builder)
+        public static void AddSerilogLogging(this WebApplicationBuilder builder)
         {
             Log.Logger = new LoggerConfiguration()
                 .ReadFrom.Configuration(builder.Configuration)

@@ -10,19 +10,19 @@ namespace RestWithAspNet10.Tests.IntegrationTests.Tools
 
         public string ConnectionString => Container.GetConnectionString();
 
-        public SqlServerFixture ()
+        public SqlServerFixture()
         {
             Container = new MsSqlBuilder().WithPassword("Admin1234").Build();
         }
 
-        public async Task InitializeAsync ()
+        public async Task InitializeAsync()
         {
             await Container.StartAsync(); // Creates the database
             await Task.Delay(TimeSpan.FromSeconds(3)); // Ensures that SQL Server is ready
             await ApplyMigrationsAsync(); // Run the migrations
         }
 
-        private async Task ApplyMigrationsAsync ()
+        private async Task ApplyMigrationsAsync()
         {
             DbContextOptionsBuilder<MsSqlContext> optionsBuilder = new();
             optionsBuilder.UseSqlServer(ConnectionString);
@@ -32,7 +32,7 @@ namespace RestWithAspNet10.Tests.IntegrationTests.Tools
             await context.Database.MigrateAsync();
         }
 
-        public async Task DisposeAsync ()
+        public async Task DisposeAsync()
         {
             await Container.DisposeAsync();
         }

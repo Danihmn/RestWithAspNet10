@@ -4,16 +4,16 @@ namespace RestWithAspNet10.Repositories
 {
     public interface IRepository<T> where T : ModelBase
     {
-        T Create (T item);
+        T Create(T item);
 
-        T FindById (long id);
+        T FindById(long id);
 
-        List<T> FindAll ();
+        List<T> FindAll();
 
-        T Update (T item);
+        T Update(T item);
 
-        void Delete (long id);
+        void Delete(long id);
 
-        bool Exists (long id);
+        bool Exists(long id);
     }
 }

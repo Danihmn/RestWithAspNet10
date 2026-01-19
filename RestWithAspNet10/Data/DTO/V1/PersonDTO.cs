@@ -7,14 +7,11 @@ namespace RestWithAspNet10.Data.DTO.V1
 {
     public record PersonDTO : ISupportHypermedia
     {
-        [JsonPropertyName("identifier")]
-        public long Id { get; init; }
+        [JsonPropertyName("identifier")] public long Id { get; init; }
 
-        [JsonPropertyName("first_name")]
-        public string? FirstName { get; init; }
+        [JsonPropertyName("first_name")] public string? FirstName { get; init; }
 
-        [JsonPropertyName("last_name")]
-        public string? LastName { get; init; }
+        [JsonPropertyName("last_name")] public string? LastName { get; init; }
 
         public string? Address { get; init; }
 

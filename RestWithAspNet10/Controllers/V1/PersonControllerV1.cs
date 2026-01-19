@@ -11,7 +11,7 @@ namespace RestWithAspNet10.Controllers.V1
         private readonly IPersonService<PersonDTO> _personService;
         private readonly ILogger<PersonController> _logger;
 
-        public PersonController (IPersonService<PersonDTO> personService, ILogger<PersonController> logger)
+        public PersonController(IPersonService<PersonDTO> personService, ILogger<PersonController> logger)
         {
             _personService = personService;
             _logger = logger;
@@ -21,7 +21,7 @@ namespace RestWithAspNet10.Controllers.V1
         [ProducesResponseType(200, Type = typeof(List<PersonDTO>))]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
-        public IActionResult GetAll ()
+        public IActionResult GetAll()
         {
             _logger.LogInformation("Buscando todas as pessoas");
 
@@ -35,7 +35,7 @@ namespace RestWithAspNet10.Controllers.V1
         [ProducesResponseType(200, Type = typeof(PersonDTO))]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
-        public IActionResult GetById (long id)
+        public IActionResult GetById(long id)
         {
             _logger.LogInformation($"Buscando pessoa pelo Id {id}");
 
@@ -57,7 +57,7 @@ namespace RestWithAspNet10.Controllers.V1
         [ProducesResponseType(200, Type = typeof(PersonDTO))]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
-        public IActionResult Create ([FromBody] PersonDTO person)
+        public IActionResult Create([FromBody] PersonDTO person)
         {
             PersonDTO createdPerson = _personService.Create(person);
 
@@ -79,7 +79,7 @@ namespace RestWithAspNet10.Controllers.V1
         [ProducesResponseType(200, Type = typeof(PersonDTO))]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
-        public IActionResult Update ([FromBody] PersonDTO person, long id)
+        public IActionResult Update([FromBody] PersonDTO person, long id)
         {
             PersonDTO updatedPerson = _personService.Update(person);
 
@@ -103,7 +103,7 @@ namespace RestWithAspNet10.Controllers.V1
         [ProducesResponseType(204, Type = typeof(PersonDTO))]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
-        public IActionResult Delete (long id)
+        public IActionResult Delete(long id)
         {
             if (_personService.FindById(id) == null) return NotFound();
 

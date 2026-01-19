@@ -9,13 +9,13 @@ namespace RestWithAspNet10.Hypermedia.Abstract
         /// </summary>
         /// <param name="context">Contexto para interceptar a response</param>
         /// <returns></returns>
-        bool CanEnrich (ResultExecutingContext context);
+        bool CanEnrich(ResultExecutingContext context);
 
         /// <summary>
         /// Enriches the response
         /// </summary>
         /// <param name="context"></param>
         /// <returns></returns>
-        Task Enrich (ResultExecutingContext context);
+        Task Enrich(ResultExecutingContext context);
     }
 }

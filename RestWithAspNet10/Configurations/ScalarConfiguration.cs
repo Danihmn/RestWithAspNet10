@@ -6,7 +6,7 @@ namespace RestWithAspNet10.Configurations
     {
         private static readonly string AppName = "ASP.NET 2026 REST API´s";
 
-        public static WebApplication UseScalarDocumentation (this WebApplication app)
+        public static WebApplication UseScalarDocumentation(this WebApplication app)
         {
             app.MapScalarApiReference("/scalar", options =>
             {

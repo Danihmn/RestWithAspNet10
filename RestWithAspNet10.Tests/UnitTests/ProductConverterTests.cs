@@ -9,14 +9,15 @@ namespace RestWithAspNet10.Tests.UnitTests
     {
         private readonly ProductConverter _converter;
 
-        public ProductConverterTests ()
+        public ProductConverterTests()
         {
             _converter = new ProductConverter();
         }
 
         #region Convertions with not null values
+
         [Fact]
-        public void Parse_ShouldConvertProductDTOToProductModelWithManualConverters ()
+        public void Parse_ShouldConvertProductDTOToProductModelWithManualConverters()
         {
             // Arrange
             ProductDTO originProductDTO = new ProductDTO
@@ -44,12 +45,13 @@ namespace RestWithAspNet10.Tests.UnitTests
             ProductModel resultProduct = _converter.Parse(originProductDTO);
 
             // Assert
-            resultProduct.Should().BeEquivalentTo(expectedProductModel, options => options.Excluding(product => product.SalePrice));
+            resultProduct.Should().BeEquivalentTo(expectedProductModel,
+                options => options.Excluding(product => product.SalePrice));
             resultProduct.SalePrice.Should().Be(expectedProductModel.CostPrice * 2);
         }
 
         [Fact]
-        public void Parse_ShouldConvertProductModelToProductDTOWithManualConverters ()
+        public void Parse_ShouldConvertProductModelToProductDTOWithManualConverters()
         {
             // Arrange
             ProductModel originProductModel = new ProductModel
@@ -77,12 +79,13 @@ namespace RestWithAspNet10.Tests.UnitTests
             ProductDTO resultProduct = _converter.Parse(originProductModel);
 
             // Assert
-            resultProduct.Should().BeEquivalentTo(expectedProductDTO, options => options.Excluding(product => product.CostPrice));
+            resultProduct.Should().BeEquivalentTo(expectedProductDTO,
+                options => options.Excluding(product => product.CostPrice));
             resultProduct.SalePrice.Should().Be(expectedProductDTO.SalePrice);
         }
 
         [Fact]
-        public void Parse_ShouldConvertProductDTOListToProductModelListWithManualConverters ()
+        public void Parse_ShouldConvertProductDTOListToProductModelListWithManualConverters()
         {
             // Arrange
             List<ProductDTO> originProductDTOList = new List<ProductDTO>
@@ -113,16 +116,17 @@ namespace RestWithAspNet10.Tests.UnitTests
             // Assert
             expectedProductModelList.Should().NotBeNull();
             expectedProductModelList.Should().HaveCount(originProductDTOList.Count);
-            expectedProductModelList.Should().BeEquivalentTo(originProductDTOList, options => options.Excluding(product => product.SalePrice));
+            expectedProductModelList.Should().BeEquivalentTo(originProductDTOList,
+                options => options.Excluding(product => product.SalePrice));
             expectedProductModelList.Should().SatisfyRespectively(
-            originProductDTOList.Select<ProductDTO, Action<ProductModel>>(origin => expected =>
-            {
-                expected.SalePrice.Should().Be(origin.CostPrice * 2);
-            }).ToArray());
+                originProductDTOList.Select<ProductDTO, Action<ProductModel>>(origin => expected =>
+                {
+                    expected.SalePrice.Should().Be(origin.CostPrice * 2);
+                }).ToArray());
         }
 
         [Fact]
-        public void Parse_ShouldConvertProductModelListToProductDTOListWithManualConverters ()
+        public void Parse_ShouldConvertProductModelListToProductDTOListWithManualConverters()
         {
             // Arrange
             List<ProductModel> originProductModelList = new List<ProductModel>
@@ -155,18 +159,21 @@ namespace RestWithAspNet10.Tests.UnitTests
             // Assert
             expectedProductDTOList.Should().NotBeNull();
             expectedProductDTOList.Should().HaveCount(originProductModelList.Count);
-            expectedProductDTOList.Should().BeEquivalentTo(originProductModelList, options => options.Excluding(product => product.CostPrice));
+            expectedProductDTOList.Should().BeEquivalentTo(originProductModelList,
+                options => options.Excluding(product => product.CostPrice));
             expectedProductDTOList.Should().SatisfyRespectively(
-            originProductModelList.Select<ProductModel, Action<ProductDTO>>(origin => expected =>
-            {
-                expected.SalePrice.Should().Be(origin.SalePrice);
-            }).ToArray());
+                originProductModelList.Select<ProductModel, Action<ProductDTO>>(origin => expected =>
+                {
+                    expected.SalePrice.Should().Be(origin.SalePrice);
+                }).ToArray());
         }
+
         #endregion
 
         #region Convertions with null values
+
         [Fact]
-        public void Parse_ShouldReturnAtNullValuesCaseAtConvertProductDTOToProductModelWithManualConverters ()
+        public void Parse_ShouldReturnAtNullValuesCaseAtConvertProductDTOToProductModelWithManualConverters()
         {
             // Arrange
             ProductDTO originProductDTO = null;
@@ -179,7 +186,7 @@ namespace RestWithAspNet10.Tests.UnitTests
         }
 
         [Fact]
-        public void Parse_ShouldReturnAtNullValuesCaseAtConvertProductModelToProductDTOWithManualConverters ()
+        public void Parse_ShouldReturnAtNullValuesCaseAtConvertProductModelToProductDTOWithManualConverters()
         {
             // Arrange
             ProductModel originProductModel = null;
@@ -192,7 +199,7 @@ namespace RestWithAspNet10.Tests.UnitTests
         }
 
         [Fact]
-        public void Parse_ShouldReturnAtNullValuesCaseAtConvertProductDTOListToProductModelListWithManualConverters ()
+        public void Parse_ShouldReturnAtNullValuesCaseAtConvertProductDTOListToProductModelListWithManualConverters()
         {
             // Arrange
             List<ProductDTO> originProductDTOList = null;
@@ -205,7 +212,7 @@ namespace RestWithAspNet10.Tests.UnitTests
         }
 
         [Fact]
-        public void Parse_ShouldReturnAtNullValuesCaseAtConvertProductModelListToProductDTOListWithManualConverters ()
+        public void Parse_ShouldReturnAtNullValuesCaseAtConvertProductModelListToProductDTOListWithManualConverters()
         {
             // Arrange
             List<ProductModel> originProductModelList = null;
@@ -216,6 +223,7 @@ namespace RestWithAspNet10.Tests.UnitTests
             // Assert
             resultProduct.Should().BeNull();
         }
+
         #endregion
     }
 }

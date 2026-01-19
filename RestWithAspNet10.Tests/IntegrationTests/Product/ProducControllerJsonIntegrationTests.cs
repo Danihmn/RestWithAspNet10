@@ -10,7 +10,7 @@ namespace RestWithAspNet10.Tests.IntegrationTests.Product
     {
         public readonly HttpClient _httpClient;
 
-        public ProducControllerJsonIntegrationTests (SqlServerFixture sqlServerFixture)
+        public ProducControllerJsonIntegrationTests(SqlServerFixture sqlServerFixture)
         {
             var factory = new CustomWebApplicationFactory<Program>(sqlServerFixture.ConnectionString);
 
@@ -23,7 +23,7 @@ namespace RestWithAspNet10.Tests.IntegrationTests.Product
         }
 
         [Fact]
-        public async Task Get_Should_Return_Status_Code_200 ()
+        public async Task Get_Should_Return_Status_Code_200()
         {
             // Arrange
             var newProduct = new ProductDTO
@@ -67,7 +67,7 @@ namespace RestWithAspNet10.Tests.IntegrationTests.Product
         }
 
         [Fact]
-        public async Task Get_By_Id_Should_Return_Status_Code_200 ()
+        public async Task Get_By_Id_Should_Return_Status_Code_200()
         {
             // Arrange
             var newProduct = new ProductDTO
@@ -110,7 +110,7 @@ namespace RestWithAspNet10.Tests.IntegrationTests.Product
         }
 
         [Fact]
-        public async Task Post_Should_Return_Status_Code_200 ()
+        public async Task Post_Should_Return_Status_Code_200()
         {
             // Arrange
             var newProduct = new ProductDTO
@@ -145,7 +145,7 @@ namespace RestWithAspNet10.Tests.IntegrationTests.Product
         }
 
         [Fact]
-        public async Task Put_Should_Return_Status_Code_200 ()
+        public async Task Put_Should_Return_Status_Code_200()
         {
             // Arrange
             var newProduct = new ProductDTO
@@ -199,7 +199,7 @@ namespace RestWithAspNet10.Tests.IntegrationTests.Product
         }
 
         [Fact]
-        public async Task Patch_Should_Return_Status_Code_200 ()
+        public async Task Patch_Should_Return_Status_Code_200()
         {
             // Arrange
             var newProduct = new ProductDTO
@@ -242,7 +242,7 @@ namespace RestWithAspNet10.Tests.IntegrationTests.Product
         }
 
         [Fact]
-        public async Task Delete_Should_Return_Status_Code_204 ()
+        public async Task Delete_Should_Return_Status_Code_204()
         {
             // Arrange
             var newProduct = new ProductDTO

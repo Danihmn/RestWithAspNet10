@@ -9,22 +9,22 @@ namespace RestWithAspNet10.Services.Implementations
     {
         private readonly IRepository<BookModel> _repository;
 
-        public BookServiceImplementation (IRepository<BookModel> repository)
+        public BookServiceImplementation(IRepository<BookModel> repository)
         {
             _repository = repository;
         }
 
-        public List<BookDTO> FindAll ()
+        public List<BookDTO> FindAll()
         {
             return _repository.FindAll().Adapt<List<BookDTO>>();
         }
 
-        public BookDTO FindById (long id)
+        public BookDTO FindById(long id)
         {
             return _repository.FindById(id).Adapt<BookDTO>();
         }
 
-        public BookDTO Create (BookDTO book)
+        public BookDTO Create(BookDTO book)
         {
             BookModel entity = book.Adapt<BookModel>();
             entity = _repository.Create(entity);
@@ -32,7 +32,7 @@ namespace RestWithAspNet10.Services.Implementations
             return entity.Adapt<BookDTO>();
         }
 
-        public BookDTO Update (BookDTO book)
+        public BookDTO Update(BookDTO book)
         {
             BookModel entity = book.Adapt<BookModel>();
             entity = _repository.Update(entity);
@@ -40,7 +40,7 @@ namespace RestWithAspNet10.Services.Implementations
             return entity.Adapt<BookDTO>();
         }
 
-        public void Delete (long id)
+        public void Delete(long id)
         {
             _repository.Delete(id);
         }

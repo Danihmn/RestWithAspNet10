@@ -7,7 +7,7 @@ namespace RestWithAspNet10.Hypermedia.Utils
         // Lock object to ensure thread safety
         private static readonly object _lock = new();
 
-        public static string BuildBaseUrl (this IUrlHelper urlHelper, string routeName, string path)
+        public static string BuildBaseUrl(this IUrlHelper urlHelper, string routeName, string path)
         {
             lock (_lock)
             {

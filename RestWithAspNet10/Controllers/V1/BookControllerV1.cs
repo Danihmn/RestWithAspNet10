@@ -11,7 +11,7 @@ namespace RestWithAspNet10.Controllers.V1
         private IBookService _bookService;
         private readonly ILogger<BookController> _logger;
 
-        public BookController (IBookService bookService, ILogger<BookController> logger)
+        public BookController(IBookService bookService, ILogger<BookController> logger)
         {
             _bookService = bookService;
             _logger = logger;
@@ -21,7 +21,7 @@ namespace RestWithAspNet10.Controllers.V1
         [ProducesResponseType(200, Type = typeof(List<BookDTO>))]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
-        public IActionResult Get ()
+        public IActionResult Get()
         {
             _logger.LogInformation("Buscando todos os livros");
             return Ok(_bookService.FindAll());
@@ -31,7 +31,7 @@ namespace RestWithAspNet10.Controllers.V1
         [ProducesResponseType(200, Type = typeof(BookDTO))]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
-        public IActionResult Get (long id)
+        public IActionResult Get(long id)
         {
             _logger.LogInformation("Buscando livro pelo ID {id}", id);
 
@@ -50,7 +50,7 @@ namespace RestWithAspNet10.Controllers.V1
         [ProducesResponseType(200, Type = typeof(BookDTO))]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
-        public IActionResult Post ([FromBody] BookDTO book)
+        public IActionResult Post([FromBody] BookDTO book)
         {
             _logger.LogInformation("Criando novo livro: {firstName}", book.Title);
 
@@ -68,7 +68,7 @@ namespace RestWithAspNet10.Controllers.V1
         [ProducesResponseType(200, Type = typeof(BookDTO))]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
-        public IActionResult Put ([FromBody] BookDTO book)
+        public IActionResult Put([FromBody] BookDTO book)
         {
             _logger.LogInformation("Alterando livro com ID {id}", book.Id);
 
@@ -89,7 +89,7 @@ namespace RestWithAspNet10.Controllers.V1
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
         [HttpDelete("{id}")]
-        public IActionResult Delete (int id)
+        public IActionResult Delete(int id)
         {
             _logger.LogInformation("Deletando livro pelo ID {id}", id);
             _bookService.Delete(id);

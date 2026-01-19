@@ -4,9 +4,10 @@ using RestWithAspNet10.Models;
 
 namespace RestWithAspNet10.Data.Converters.Implementations
 {
-    public class ProductConverter : IConverterContract<ProductModel, ProductDTO>, IConverterContract<ProductDTO, ProductModel>
+    public class ProductConverter : IConverterContract<ProductModel, ProductDTO>,
+        IConverterContract<ProductDTO, ProductModel>
     {
-        public ProductDTO Parse (ProductModel origin)
+        public ProductDTO Parse(ProductModel origin)
         {
             if (origin == null) return null;
             return new ProductDTO
@@ -21,7 +22,7 @@ namespace RestWithAspNet10.Data.Converters.Implementations
             };
         }
 
-        public ProductModel Parse (ProductDTO origin)
+        public ProductModel Parse(ProductDTO origin)
         {
             if (origin == null) return null;
             return new ProductModel
@@ -37,13 +38,13 @@ namespace RestWithAspNet10.Data.Converters.Implementations
             };
         }
 
-        public List<ProductDTO> ParseList (List<ProductModel> origin)
+        public List<ProductDTO> ParseList(List<ProductModel> origin)
         {
             if (origin == null) return null;
             return origin.Select(item => Parse(item)).ToList();
         }
 
-        public List<ProductModel> ParseList (List<ProductDTO> origin)
+        public List<ProductModel> ParseList(List<ProductDTO> origin)
         {
             if (origin == null) return null;
             return origin.Select(item => Parse(item)).ToList();

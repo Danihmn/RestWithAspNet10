@@ -7,7 +7,7 @@ namespace RestWithAspNet10.Configurations
         private static readonly string AppName = "ASP.NET 2026 REST API´s";
         private static readonly string AppDescription = $"API ASP.NET developed in course '{AppName}'";
 
-        public static IServiceCollection AddOpenAPIConfiguration (this IServiceCollection services)
+        public static IServiceCollection AddOpenAPIConfiguration(this IServiceCollection services)
         {
             // Registers the OpenAPI information for dependency injection
             services.AddSingleton(new OpenApiInfo

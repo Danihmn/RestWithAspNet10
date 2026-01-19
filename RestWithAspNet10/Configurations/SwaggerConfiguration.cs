@@ -7,7 +7,7 @@ namespace RestWithAspNet10.Configurations
         private static readonly string AppName = "ASP.NET 2026 REST API´s";
         private static readonly string AppDescription = $"API ASP.NET developed in course '{AppName}'";
 
-        public static IServiceCollection AddSwaggerConfiguration (this IServiceCollection services)
+        public static IServiceCollection AddSwaggerConfiguration(this IServiceCollection services)
         {
             // Registers the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(options =>
@@ -32,7 +32,7 @@ namespace RestWithAspNet10.Configurations
             return services;
         }
 
-        public static IApplicationBuilder UseSwaggerDocumentation (this IApplicationBuilder app)
+        public static IApplicationBuilder UseSwaggerDocumentation(this IApplicationBuilder app)
         {
             // Enables the middleware to serve generated Swagger as a JSON endpoint
             app.UseSwagger();

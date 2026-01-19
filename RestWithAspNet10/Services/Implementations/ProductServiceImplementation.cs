@@ -10,24 +10,28 @@ namespace RestWithAspNet10.Services.Implementations
         private readonly IProductRepository _repository;
         private readonly ProductConverter _converter;
 
-        public ProductServiceImplementation (IProductRepository repository)
+        public ProductServiceImplementation(IProductRepository repository)
         {
             _repository = repository;
             _converter = new ProductConverter();
         }
 
-        public List<ProductDTO> FindAll ()
+        public List<ProductDTO> FindAll()
         {
             return _converter.ParseList(_repository.FindAll());
         }
 
-        public ProductDTO FindById (long id)
+        public ProductDTO FindById(long id)
         {
             return _converter.Parse(_repository.FindById(id));
-
         }
 
-        public ProductDTO Create (ProductDTO product)
+        public List<ProductDTO> FindByBrand(string brand)
+        {
+            return _converter.ParseList(_repository.FindBrand(brand));
+        }
+
+        public ProductDTO Create(ProductDTO product)
         {
             ProductModel entity = _converter.Parse(product);
             entity = _repository.Create(entity);
@@ -35,7 +39,7 @@ namespace RestWithAspNet10.Services.Implementations
             return _converter.Parse(entity);
         }
 
-        public ProductDTO Update (ProductDTO product)
+        public ProductDTO Update(ProductDTO product)
         {
             ProductModel entity = _converter.Parse(product);
             entity = _repository.Update(entity);
@@ -43,12 +47,12 @@ namespace RestWithAspNet10.Services.Implementations
             return _converter.Parse(entity);
         }
 
-        public void Delete (long id)
+        public void Delete(long id)
         {
             _repository.Delete(id);
         }
 
-        public ProductDTO Disable (long id)
+        public ProductDTO Disable(long id)
         {
             return _converter.Parse(_repository.Disable(id));
         }

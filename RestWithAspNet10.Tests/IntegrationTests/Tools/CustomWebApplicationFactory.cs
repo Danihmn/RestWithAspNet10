@@ -8,12 +8,12 @@ namespace RestWithAspNet10.Tests.IntegrationTests.Tools
     {
         private readonly string _connectionString;
 
-        public CustomWebApplicationFactory (string connectionString)
+        public CustomWebApplicationFactory(string connectionString)
         {
             _connectionString = connectionString;
         }
 
-        protected override void ConfigureWebHost (IWebHostBuilder builder)
+        protected override void ConfigureWebHost(IWebHostBuilder builder)
         {
             builder.ConfigureAppConfiguration((context, config) =>
             {

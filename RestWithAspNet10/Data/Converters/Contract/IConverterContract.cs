@@ -2,7 +2,7 @@
 {
     public interface IConverterContract<Origin, Destination>
     {
-        Destination Parse (Origin origin);
-        List<Destination> ParseList (List<Origin> origin);
+        Destination Parse(Origin origin);
+        List<Destination> ParseList(List<Origin> origin);
     }
 }

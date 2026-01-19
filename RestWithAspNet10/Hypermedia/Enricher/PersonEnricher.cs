@@ -6,11 +6,12 @@ namespace RestWithAspNet10.Hypermedia.Enricher
 {
     public class PersonEnricher : ContentResponseEnricher<PersonDTO>
     {
-        protected override Task EnrichModel (PersonDTO content, IUrlHelper urlHelper)
+        protected override Task EnrichModel(PersonDTO content, IUrlHelper urlHelper)
         {
             // Creates a new HttpRequest based on the urlHelper's ActionContext
             HttpRequest request = urlHelper.ActionContext.HttpContext.Request;
-            var baseUrl = $"{request.Scheme}://{request.Host.ToUriComponent()}{request.PathBase.ToUriComponent()}/api/v1/book";
+            var baseUrl =
+                $"{request.Scheme}://{request.Host.ToUriComponent()}{request.PathBase.ToUriComponent()}/api/v1/book";
 
             // Adds a self link to the Links collection of the PersonDTO
             content.Links.AddRange(GenerateLinks(content.Id, baseUrl));
@@ -18,7 +19,7 @@ namespace RestWithAspNet10.Hypermedia.Enricher
             return Task.CompletedTask;
         }
 
-        private IEnumerable<HypermediaLink> GenerateLinks (long id, string baseUrl)
+        private IEnumerable<HypermediaLink> GenerateLinks(long id, string baseUrl)
         {
             return
             [

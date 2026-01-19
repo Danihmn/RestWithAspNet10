@@ -8,7 +8,7 @@ namespace RestWithAspNet10.Tests.IntegrationTests
     {
         public readonly HttpClient _httpClient;
 
-        public ScalarIntegrationTests (SqlServerFixture sqlServerFixture)
+        public ScalarIntegrationTests(SqlServerFixture sqlServerFixture)
         {
             var factory = new CustomWebApplicationFactory<Program>(sqlServerFixture.ConnectionString);
 
@@ -21,7 +21,7 @@ namespace RestWithAspNet10.Tests.IntegrationTests
         }
 
         [Fact]
-        public async Task ScalarUI_ShouldReturnScalarUI ()
+        public async Task ScalarUI_ShouldReturnScalarUI()
         {
             // Arrange & Act
             var response = await _httpClient.GetAsync("/scalar/");
